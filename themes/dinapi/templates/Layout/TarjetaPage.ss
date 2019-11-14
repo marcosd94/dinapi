@@ -1,6 +1,6 @@
 
 
-      <div class="float-left secondary-header head2 head_derechoautor"  style="background-image: url($Imagen.URL);">
+      <div class="float-left secondary-header head2 head_derechoautor" <% if Imagen %> style="background-image: url($Imagen.URL);" <% end_if %>>
 
         <div class="header-secondary-image"></div>
         <div class="titulo-pagina-principal ml-5 mt-2 pl-2 pr-5 col-md-4">
@@ -102,8 +102,8 @@
 					<figcaption>
 						<p>$Subtitulo
 						</p>
-						<% if $LinkInterno == 0 %>
-							<a href="$LinkExterno">Vea más</a>
+						<% if $LinkExterno != ""  %>
+							<a href="$LinkExterno" target="_blank">Vea más</a>
 						<% else %>
 							<a href="{$get_permalink($LinkInterno)}">Vea más</a>
 						<% end_if %>

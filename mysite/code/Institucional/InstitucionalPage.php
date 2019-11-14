@@ -4,7 +4,7 @@ class InstitucionalPage extends Page {
 
   private static $db = array(
     'Titulo' => 'Varchar(255)'
-);
+  );
 
   /*private static $summary_fields = array (
       'TipoProducto' => 'TipoProducto'

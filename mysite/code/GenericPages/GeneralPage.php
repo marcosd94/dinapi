@@ -2,6 +2,10 @@
 class GeneralPage extends Page {
   static $icon = 'mysite/iconos/general-page.png';
 
+  private static $db = array(
+    'TituloPadre' => 'Varchar(255)'
+  );
+
   private static $description = 'Página General para todas las paginas';
 
   private static $singular_name = "Página General para todas las paginas";
@@ -11,7 +15,8 @@ class GeneralPage extends Page {
   );
 
   public function getCMSFields() {
-    	$fields = parent::getCMSFields();
+    $fields = parent::getCMSFields();
+    $fields->addFieldToTab('Root.Main',TextField::create('TituloPadre','Titulo de la página padre'),'Content');
 		$fields->addFieldToTab('Root.Main',UploadField::create('Imagen','Imagen para la pantalla general'),'Content');
 
     return $fields;

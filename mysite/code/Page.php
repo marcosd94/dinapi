@@ -383,5 +383,9 @@ class Page_Controller extends ContentController {
 		//456  
 		return $primer." ".$segundo." ".$tercero;
 	}
+	
+    public function ListaMenus() { 
+        return MenuDerecho::get();
+    }
 
 }

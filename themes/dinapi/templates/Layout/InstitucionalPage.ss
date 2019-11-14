@@ -43,8 +43,8 @@
 				<figcaption>
 					<p>					
 					</p>					
-					<% if $LinkInterno == 0 %>
-						<a href="$LinkExterno">Vea más</a>
+					<% if $LinkExterno != "" %>
+						<a href="$LinkExterno" target="_blank">Vea más</a>
 					<% else %>
 						<a href="{$get_permalink($LinkInterno)}">Vea más</a>
 					<% end_if %>

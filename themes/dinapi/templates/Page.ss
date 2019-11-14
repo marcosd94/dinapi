@@ -59,6 +59,7 @@
     <script src="$ThemeDir/js/anime.min.js"></script>
     <script src="$ThemeDir/js/owl.carousel.min.js"></script>
     <script src="$ThemeDir/js/fontawesome.min.js"></script>
+    <script src="$ThemeDir/js/carousel.js"></script>
     <script type="text/javascript" src="$ThemeDir/js/app.js"></script>
     <script src="$ThemeDir/js/parallax.js"></script>
     <link rel="icon" type="image/png" href="$ThemeDir/img/icono.png" />

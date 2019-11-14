@@ -17,16 +17,15 @@ $databaseConfig = array(
 i18n::set_locale('es_PY');
 setlocale(LC_TIME, 'es_PY.utf8'); 
 
-if(!Director::isDev()) {
-    // log errors and warnings
-    SS_Log::add_writer(new SS_LogFileWriter('dinapi-silverstripe-errors-warnings.log'), SS_Log::WARN, '<=');
+// log errors and warnings
+SS_Log::add_writer(new SS_LogFileWriter('dinapi-silverstripe-errors-warnings.log'), SS_Log::WARN, '<=');
 
-    // or just errors
-    SS_Log::add_writer(new SS_LogFileWriter('dinapi-silverstripe-errors.log'), SS_Log::ERR);
+// or just errors
+SS_Log::add_writer(new SS_LogFileWriter('dinapi-silverstripe-errors.log'), SS_Log::ERR);
 
-    // or notices (e.g. for Deprecation Notifications)
-    SS_Log::add_writer(new SS_LogFileWriter('dinapi-silverstripe-errors-notices.log'), SS_Log::NOTICE);
-}
+// or notices (e.g. for Deprecation Notifications)
+SS_Log::add_writer(new SS_LogFileWriter('dinapi-silverstripe-errors-notices.log'), SS_Log::NOTICE);
+
 
 // Activar la búsqueda
 FulltextSearchable::enable();
@@ -54,6 +53,13 @@ HtmlEditorConfig::get('cms')->setOption(
 	'i[*],'.
 	'span[*],'.
   'img[*],' .
+  'h1[*],' .
+  'h2[*],' .
+  'h3[*],' .
+  'H1[*],' .
+  'H2[*],' .
+  'H3[*],' .
+  'button[class|data|id|name|maxlenght|required|style|placeholder|onclick|location|href],'.
   'iframe[src|name|width|height|title|align|allowfullscreen|frameborder|marginwidth|marginheight|scrolling]'
 );
 

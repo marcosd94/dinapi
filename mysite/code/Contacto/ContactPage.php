@@ -2,24 +2,29 @@
 class ContactPage extends Page {
     static $icon = 'mysite/iconos/contacto.png';
 
-  private static $description = 'Página de contacto';
+    private static $db = array(
+        'Titulo' => 'Varchar(255)'
+    );
 
-  private static $singular_name = "Página de contacto";
+    private static $description = 'Página de contacto';
 
-  private static $has_one = array (
-      'Imagen' => 'Image', 
-  );
+    private static $singular_name = "Página de contacto";
 
-  public function getCMSFields() {
-        $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root.Main',UploadField::create('Imagen','Imagen para la pantalla general'),'Content');
+    private static $has_one = array (
+        'Imagen' => 'Image', 
+    );
 
-    return $fields;
-  }
+    public function getCMSFields() {
+            $fields = parent::getCMSFields();
+            $fields->addFieldToTab('Root.Main',TextField::create('Titulo','Titulo de la página'),'Content');
+            $fields->addFieldToTab('Root.Main',UploadField::create('Imagen','Imagen para la página de contacto'),'Content');
 
-  function getCMSValidator() {
-    return new RequiredFields(array('Imagen'));
-  }
+        return $fields;
+    }
+
+    function getCMSValidator() {
+        return new RequiredFields(array('Titulo'));
+    }
 
 }
 class ContactPage_Controller extends Page_Controller {
@@ -36,12 +41,21 @@ class ContactPage_Controller extends Page_Controller {
 
 
     public function Formulario() { 
+        $options = array(
+            'Consulta' => 'Consulta',
+            'Reclamo' => 'Reclamo',
+            'Sugerencia' => 'Sugerencia'
+        );
         $form = Form::create(
                 $this,
                 __FUNCTION__,
                 FieldList::create(
                     TextField::create('Nombre', 'Nombre'),
+                    TextField::create('Apellido', 'Apellido'),
                     EmailField::create('Email', 'Dirección de e-mail'),
+                    DropdownField::create('Tema', 'Por favor, especifique su necesidad', $options)->setEmptyString('Seleccione una necesidad'),
+                    TextField::create('Documento', 'Nro. de Documento'),
+                    TextField::create('Teléfono ', 'Teléfono'),
                     TextAreaField::create('Mensaje', 'Mensaje')
                 ),
                 FieldList::create(
@@ -54,7 +68,7 @@ class ContactPage_Controller extends Page_Controller {
             ->addExtraClass('formulario-contacto');
 
             foreach($form->Fields() as $field) {
-                $field->addExtraClass('form-control')
+                $field->addExtraClass('form-control col-md-6')
                        ->setAttribute('placeholder', $field->getName().'*');
             }
 
@@ -81,7 +95,7 @@ class ContactPage_Controller extends Page_Controller {
             <p><strong>Mensaje:</strong> {$data['Mensaje']}</p> 
         "; 
         $email->setBody($messageBody); 
-        $email->send(); 
+        //$email->send(); 
         /*SS_Log::log("Dammit, an issue with variable ".$var, SS_Log::WARN);*/
         return array(
             'MensajeRespuesta' => '<p>Gracias por su mensaje.</p>',

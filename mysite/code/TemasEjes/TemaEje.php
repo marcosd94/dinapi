@@ -11,7 +11,8 @@ class TemaEje extends DataObject {
   private static $plural_name = "Temas de los Ejes";
 
   private static $summary_fields = array (
-      'Nombre' => 'Nombre',      
+      'Nombre' => 'Nombre', 
+      'Link.Nice' => 'Int',     
       'Eje' => 'Eje'
   );
 
