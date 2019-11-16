@@ -1,0 +1,8 @@
+---
+Name: rutas
+After: framework/routes#coreroutes
+---
+Director:
+  rules:
+    # '': 'HomePage_Controller'
+    'noticias/detalle-noticia': 'NoticiaDetalleController'

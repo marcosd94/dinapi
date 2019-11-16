@@ -15275,3 +15275,18 @@ h4.noticias-titulo-page  {
   color: #fff !important;
   font-size: 0.85rem  !important;
 }
+
+
+.formulario-mensaje #Form_Formulario{
+  padding-left: 40px;
+}  
+
+.noticias-texto div {
+  font-size: 0.9rem;
+}
+.noticias-texto img {
+  margin-bottom: 20px;
+}
+.noticias-texto div:empty {
+  padding-bottom: 20px;
+}

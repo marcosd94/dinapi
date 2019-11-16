@@ -31,7 +31,7 @@
           <div class="carousel-item <% if $Pos(0) == 0 %> active <% end_if %>">
             <img src="$Imagen.URL" class="img-fluid img-slider-noticias" alt="...">
             <!--div class="carousel-caption d-none d-md-block"-->
-            <a href="$ID">
+            <a href="noticias/detalle-noticia?idNoticia=$ID">
               <div class="carousel-caption d-none d-md-block">
                 <h5>$Titulo</h5>
               </div>
@@ -60,13 +60,13 @@
         <% loop Noticias.sort(ID, DESC) %>
           <div class="row">
             <div class="col-md-4">
-              <a href="$ID">
+              <a href="noticias/detalle-noticia?idNoticia=$ID">
                 <img src="$Imagen.URL" class="img-fluid">
               </a>
             </div>
             <div class="col-md-8">
               <h4 class="noticias-titulo-page">
-                <a href="$ID">
+              <a href="noticias/detalle-noticia?idNoticia=$ID">
                   $Titulo
                 </a>
               </h4>
