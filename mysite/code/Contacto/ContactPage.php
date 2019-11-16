@@ -68,7 +68,7 @@ class ContactPage_Controller extends Page_Controller {
             ->addExtraClass('formulario-contacto');
 
             foreach($form->Fields() as $field) {
-                $field->addExtraClass('form-control col-md-6')
+                $field->addExtraClass('form-control')
                        ->setAttribute('placeholder', $field->getName().'*');
             }
 
