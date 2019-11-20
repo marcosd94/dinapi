@@ -8,9 +8,9 @@ class MensajeContacto extends DataObject {
     'Tema' => 'Varchar(255)',
     'Documento' => 'Varchar(255)',
     'Telefono' => 'Varchar(255)',
-    /*'Socio' => 'Varchar(255)', */
     'Mensaje' => 'Text'
   );
+  private static $default_sort = 'Created DESC';
 
   private static $singular_name = "Mensaje de contacto";
 
@@ -19,6 +19,7 @@ class MensajeContacto extends DataObject {
   private static $summary_fields = array (
     'Nombre' => 'Nombre',
     'Apellido' => 'Apellido',
+    'Created' => 'Fecha de envío',
     'Email' => 'Email',
     'Tema' => 'Tema',
     'Documento' => 'Documento',

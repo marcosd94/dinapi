@@ -10,12 +10,14 @@
 <div class="col-md-12 clear-section float-left pt-5 " id="information-container">
 	<div class="clearfix"></div>
 	<div class="col-md-12 bread">
-		<%-- <div><a href="#">Inicio</a> / <a href="index.php">Marcas</a> / Aprender</div> --%>
-		$Breadcrumbs
+		<ol class="breadcrumb">
+			<li><a href="$BaseHref">INICIO</a></li>
+			<li class="active">CONTACTO</li>
+		</ol>
 	</div>
 	<div class="row">
-		<div class="col-md-10 offset-md-1 mt-5 information-texto">
-			<h2 class="inicial">$Titulo</h2>
+		<div class="col-md-6 col-offset-md-3 information-texto contacto-container">
+			<h2 class="inicial contacto">$Titulo</h2>
 			<div class="row center formulario-mensaje">
 				$MensajeRespuesta
 				$Formulario
