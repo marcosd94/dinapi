@@ -19,12 +19,13 @@ $(document).ready(function () {
     
     
     var ruta = window.location.href;
-    if(ruta.indexOf("centro-de-noticias")!=-1){
-        
-        $('#/dinapi/centro-de-noticias/').addClass('current');
+    if(ruta.indexOf("centro-de-noticias")!=-1){        
+        $('#1').addClass('current');
+    }else if(ruta.indexOf("contacto")!=-1){
+        $('#4').addClass('current');
     }else{
-
-        $('#/dinapi/contacto/').addClass('current');
+        $('#1').removeClass('current');
+        $('#4').removeClass('current');
     }
 
 });

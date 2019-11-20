@@ -80,7 +80,7 @@
 					<div class="row">
 				<% end_if %>
 
-				<% if $LinkInterno == 0 %>
+				<% if $LinkExterno != "" %>
 					<div class="col-md-4 col-12 float-left eje-box-outer grid" onclick="location.href='$LinkExterno';">
 				<% else %>
 					<div class="col-md-4 col-12 float-left eje-box-outer grid" onclick="location.href='{$get_permalink($LinkInterno)}';">

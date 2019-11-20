@@ -386,6 +386,11 @@ class Page_Controller extends ContentController {
 	
     public function ListaMenus() { 
         return MenuDerecho::get();
-    }
+	}
+	
+	
+	public function ListaNoticiasBuscador($texto) {
+		return Noticia::get()->where(" upper(Titulo) LIKE upper('%" . $texto . "%') OR upper(Content) LIKE upper('%" . $texto . "%')");
+	}
 
 }

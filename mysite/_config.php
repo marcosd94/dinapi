@@ -59,6 +59,7 @@ HtmlEditorConfig::get('cms')->setOption(
   'H1[*],' .
   'H2[*],' .
   'H3[*],' .
+  'p[*],' .
   'button[class|data|id|name|maxlenght|required|style|placeholder|onclick|location|href],'.
   'iframe[src|name|width|height|title|align|allowfullscreen|frameborder|marginwidth|marginheight|scrolling]'
 );
