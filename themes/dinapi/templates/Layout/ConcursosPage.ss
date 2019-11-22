@@ -23,9 +23,9 @@
           <h2 class="inicial">CONCURSOS</h2>
           <hr />
           <br>
-          <% loop AllChildren %>              
+          <% loop Concursos %>              
             <div class="col-md-8 col-md-2">
-              <a href="$Link">
+              <a href="concursos/detalle-concurso?idConcurso=$ID">
                 <img class="img-fluid" src="$ImagenCorta.URL">
               </a>
             </div>

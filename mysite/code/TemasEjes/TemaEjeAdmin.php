@@ -10,5 +10,5 @@ class TemaEjeAdmin extends ModelAdmin {
         'TemaEje'
     );
 
-    private static $menu_icon = 'mysite/iconos/link2.png';
+    private static $menu_icon = 'mysite/iconos/temas-ejes.png';
 }

@@ -1,6 +1,6 @@
 <?php
 class ArchivoDesplegablePage extends Page {
-  static $icon = 'mysite/iconos/pdf.png';
+  static $icon = 'mysite/iconos/desplegable-page.png';
 
   private static $db = array(
     'Titulo' => 'Varchar(255)',

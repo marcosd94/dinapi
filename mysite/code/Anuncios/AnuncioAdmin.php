@@ -10,5 +10,5 @@ class AnuncioAdmin extends ModelAdmin {
         'Anuncio'
     );
 
-    private static $menu_icon = 'mysite/iconos/ticket.png';
+    private static $menu_icon = 'mysite/iconos/anuncios.png';
 }

@@ -56,8 +56,8 @@
 
 
 
-      <% if Noticias %>
-        <% loop Noticias.sort(ID, DESC) %>
+      <% if ListaNoticias %>
+        <% loop ListaNoticias.sort(ID, DESC) %>
           <div class="row">
             <div class="col-md-4">
               <a href="noticias/detalle-noticia?idNoticia=$ID">

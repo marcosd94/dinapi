@@ -1,6 +1,6 @@
 <?php
 class ConcursosPage extends Page {
-  static $icon = 'mysite/iconos/biblioteca.png';
+  static $icon = 'mysite/iconos/concurso.png';
 
   private static $db = array(
     'Titulo' => 'Varchar(255)'
@@ -17,10 +17,22 @@ class ConcursosPage extends Page {
   private static $has_one = array (
 	  'Imagen' => 'Image'
   );
+  
+
+  private static $has_many = array (
+    'Concursos' => 'Concurso'
+  );
+  
   public function getCMSFields() {
     	$fields = parent::getCMSFields();
         $fields->addFieldToTab('Root.Main',TextField::create('Titulo','Titulo de la página'),'Content');
         $fields->addFieldToTab('Root.Main',UploadField::create('Imagen','Imagen para la página'),'Content');
+				$fields->addFieldToTab('Root.Concursos', GridField::create(
+				'Concursos',
+				'Concursos en esta página',
+				$this->Concursos(),
+				GridFieldConfig_RecordEditor::create()
+				));
     return $fields;
   }
 

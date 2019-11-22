@@ -1,6 +1,6 @@
 <?php
 class InstitucionalPage extends Page {
-  static $icon = 'mysite/iconos/sucursal.png';
+  static $icon = 'mysite/iconos/institucional.png';
 
   private static $db = array(
     'Titulo' => 'Varchar(255)'

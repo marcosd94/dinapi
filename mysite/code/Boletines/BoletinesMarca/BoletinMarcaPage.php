@@ -1,6 +1,6 @@
 <?php
 class BoletinMarcaPage extends Page {
-  static $icon = 'mysite/iconos/sucursal.png';
+  static $icon = 'mysite/iconos/boletin-marca-page.png';
   
   private static $db = array(
     'TituloPadre' => 'Varchar(255)'

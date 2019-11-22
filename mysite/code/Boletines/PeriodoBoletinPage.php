@@ -1,6 +1,6 @@
 <?php
 class PeriodoBoletinPage extends Page {
-  static $icon = 'mysite/iconos/foto.png';
+  static $icon = 'mysite/iconos/marco-normativo.png';
 
 
   /*private static $summary_fields = array (

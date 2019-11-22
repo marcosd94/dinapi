@@ -15574,3 +15574,74 @@ h4.noticias-titulo-page  {
   color: #114875;
   font-family: "Futura", sans-serif;
 }
+
+.btn-calendar {
+  /* color: #000;
+  background-color: #d4d4d4;
+  border-color: #b1b1b1;
+  font-weight: 600; */
+  color: #1c2d36 !important;
+  background-color: #ffffff;
+  border-color: #fffdfd;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+
+
+.burbuja {
+  border-radius: 50%;
+  background-color: #008d55;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  height: 60px;
+  line-height: 20px;
+  padding: 11px;
+  position: absolute;
+  right: 8%;
+  text-align: center;
+  top: 3%;
+  width: 60px;
+}
+.burbuja .grande {
+  font-size: 28px; 
+}
+.burbuja span {
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); 
+}
+#loader {
+  text-align: center; 
+}
+#loader i {
+  color: #008d55; 
+}
+.calendar-text{
+  text-align: left;
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+figure.effect-apollo:hover .icono-eje-calendar {
+  opacity: 0.4;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1); }
+
+
+  
+
+
+
+@media (max-height: 1400px){
+  .icono-eje-calendar {
+    margin-bottom: 0px !important;
+    font-size: 1.0rem;
+  }
+
+  .calendar-text{
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+}

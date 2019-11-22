@@ -11,21 +11,9 @@
 
 		private static $singular_name = "Página de noticias";
 		
-		
-
-		private static $has_many = array (
-			'Noticias' => 'Noticia'
-		);
-		
 		public function getCMSFields() {
 				$fields = parent::getCMSFields();
 				$fields->addFieldToTab('Root.Main',TextField::create('Titulo','Titulo para de la página'),'Content');
-				$fields->addFieldToTab('Root.Noticias', GridField::create(
-				'Noticias',
-				'Noticias en esta página',
-				$this->Noticias(),
-				GridFieldConfig_RecordEditor::create()
-				));
 				
 			return $fields;
 		}
@@ -38,9 +26,13 @@
 	class NoticiaPage_Controller extends Page_Controller{
 			
   
+		public function ListaNoticias() {
+			return Noticia::get();
+		}
+
 		public function ListaNoticiasDestacadas() {
 			return Noticia::get()->filter(array('Destacado' => true));
-		  }
+		}
 
 	}
 ?>

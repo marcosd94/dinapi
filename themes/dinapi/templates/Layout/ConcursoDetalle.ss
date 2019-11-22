@@ -6,13 +6,11 @@
     <div class="col-md-12 clear-section float-left pt-5 " id="information-container">
       <div class="clearfix"></div>
       <div class="col-md-12 bread">
-        <div>
-          $Breadcrumbs
-        </div>
+          <div>Concursos</div>
       </div>
       <div class="row">
         <div class="col-md-3 sidebar-links">
-          <h1>$Titulo</h1>
+          <h1>DATOS INSTITUCIONALES</h1>
           <div class="lista">
             <ul>
               
@@ -24,7 +22,9 @@
           <hr />
           <br>
           <div class="col-md-10">
+          <% loop Concurso %> 
               <img class="img-fluid" src="$ImagenCompleta.URL">
+          <% end_loop %>
           </div>
         </div>
       </div>

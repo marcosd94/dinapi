@@ -1,6 +1,6 @@
 <?php
 class TarjetaSimplePage extends Page {
-  static $icon = 'mysite/iconos/ticket.png';
+  static $icon = 'mysite/iconos/tarj-simple-page.png';
 
   private static $db = array(
     'Titulo' => 'Varchar(255)'

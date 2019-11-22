@@ -5,23 +5,44 @@ class Noticia extends DataObject {
     'Categoria' => 'Int',
     'Fecha' => 'Date',
     'Destacado' => 'Boolean',
-    'Content' => 'HTMLText'
-    
+    'Content' => 'HTMLText'    
   );
-
+  
   private static $singular_name = "Noticia";
 
   private static $plural_name = "Noticias";
+  
+  private static $default_sort = 'Created DESC';
+  
+  public function canEdit() {
+      return true;
+  }
+
+  public function canDelete() {
+      return true;
+  }
+
+  public function canCreate(){
+      return true;
+  }
+
+  public function canPublish(){
+      return true;
+  }
+
+  public function canView(){
+      return true;
+  }
 
   private static $has_one = array (
-    'Imagen' => 'Image',
-    'Pagina' => 'NoticiaPage'
+    'Imagen' => 'Image'
   );
 
   private static $summary_fields = array (
       'Titulo' => 'Titulo',
       'Fecha.Nice' => 'Fecha',
-      'Destacado.Nice' => 'Destacado'
+      'Destacado.Nice' => 'Destacado',
+      'Imagen.CMSThumbnail' => 'Imagen de la noticia'
   );
 
   public function getCMSFields() {
