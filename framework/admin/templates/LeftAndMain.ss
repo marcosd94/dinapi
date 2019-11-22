@@ -4,6 +4,7 @@
 	<% base_tag %>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=720, maximum-scale=1.0" />
+	<link rel="icon" type="image/png" href="framework/admin/images/icono.png">
 	<title>$Title</title>
 </head>
 <body class="loading cms" lang="$Locale.RFC1766" data-frameworkpath="$ModulePath(framework)"

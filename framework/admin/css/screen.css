@@ -860,7 +860,7 @@ li.class-ErrorPage > a .jstree-pageicon { background-position: 0 -112px; }
 .cms-logo { border-bottom: 1px solid #1a2a45; overflow: hidden; padding: 10px 0 9px; /* should come to 40px with border bottom and line-height */ position: relative; vertical-align: middle; font-size: 12px; min-height: 20px; }
 .collapsed .cms-logo { padding: 0; }
 .cms-logo .version { display: none; }
-.cms-logo a { position: absolute; top: 8px; bottom: 8px; display: block; width: 24px; background: url("../images/logo_small.png") no-repeat left center; text-indent: -9999em; padding: 0 1px; left: 0; }
+.cms-logo a { position: absolute; top: 8px; bottom: 8px; display: block; width: 24px; background: url("../images/icono.png") no-repeat left center; background-size: cover; text-indent: -9999em; padding: 0 1px; left: 0; }
 .cms-logo span { font-weight: bold; font-size: 12px; line-height: 16px; padding: 2px 0; margin-left: 30px; }
 
 .cms-login-status { border-top: 1px solid #19435c; padding: 8px 0 9.6px; line-height: 16px; font-size: 11px; }
