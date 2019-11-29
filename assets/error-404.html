@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" class="clear-section">
   <head>
-    <base href="http://testdisoftpy.com/dinapi/"><!--[if lte IE 6]></base><![endif]-->    
+    <base href="http://localhost/dinapi/"><!--[if lte IE 6]></base><![endif]-->    
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
@@ -71,8 +71,8 @@
 
 
     <script type="text/javascript">
-        var contexto = "http://testdisoftpy.com/dinapi/pagina-no-encontrada/";
-        var baseurl = "http://testdisoftpy.com/dinapi/";
+        var contexto = "http://localhost/dinapi/pagina-no-encontrada/";
+        var baseurl = "http://localhost/dinapi/";
     </script>
     
   </head>
@@ -80,7 +80,7 @@
     <div id="app" class="clear-section">  
       <header>
         <div class="row">
-          <img src="themes/dinapi/img/logo.png" class="center-block col-md-2 col-8 col-sm-6 mb-2 mt-2 img-fluid" onclick="location.href='http://testdisoftpy.com/dinapi/';">
+          <img src="themes/dinapi/img/logo.png" class="center-block col-md-2 col-8 col-sm-6 mb-2 mt-2 img-fluid" onclick="location.href='http://localhost/dinapi/';">
         </div>        
       </header>
       <a href="/dinapi/pagina-no-encontrada/#page-top" v-bind:class=" 'navigate ' + (section == 'head' ? 'notShow' : 'show')" id="top">
@@ -229,7 +229,7 @@
       
       
       
-				<form class="form-inline my-2 my-lg-0" action="http://testdisoftpy.com/dinapi/home/SearchForm" method="get">
+				<form class="form-inline my-2 my-lg-0" action="http://localhost/dinapi/home/SearchForm" method="get">
 					
           <input class="form-control mr-sm-2" value="" type="search" placeholder="Buscar" aria-label="Search" name="Search">
 					
@@ -257,7 +257,24 @@
 
       
       <div class="contenido">
-        <p>Lo sentimos, parece que intentaste acceder a una página que no existe.</p><p>Por favor, comprueba que la URL que intentabas acceder está bien escrita e inténtalo de nuevo.</p>
+        <div class="row">
+<div class="col-md-12">
+<div class="section">
+<div class="contenido">
+<div class="excepciones">
+<div class="col-md-12 bread" style="margin-bottom: 25px;">
+<div><a href="http://localhost/dinapi/">Página no encontrada</a></div>
+</div>
+<div class="clearfix"></div>
+<div class="contenido">
+<h2 style="color: #333333;">Lo sentimos, parece que intentaste acceder a una página que no existe.</h2>
+<h2 style="color: #333333;">Por favor, comprueba que la URL que intentabas acceder está bien escrita e inténtalo de nuevo.</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
       </div>
       
     </div>
