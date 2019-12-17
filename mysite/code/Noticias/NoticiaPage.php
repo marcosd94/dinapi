@@ -30,9 +30,5 @@
 			return Noticia::get();
 		}
 
-		public function ListaNoticiasDestacadas() {
-			return Noticia::get()->filter(array('Destacado' => true));
-		}
-
 	}
 ?>

@@ -393,4 +393,8 @@ class Page_Controller extends ContentController {
 		return Noticia::get()->where(" upper(Titulo) LIKE upper('%" . $texto . "%') OR upper(Content) LIKE upper('%" . $texto . "%')");
 	}
 
+	public function ListaNoticiasDestacadas() {
+		return Noticia::get()->filter(array('Destacado' => true));
+	}
+
 }

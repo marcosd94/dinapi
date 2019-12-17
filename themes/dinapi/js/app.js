@@ -205,7 +205,7 @@ $(document).ready(function() {
               items:3
           },
           1000:{
-              items:4
+              items:6
           }
     }
   });
@@ -225,7 +225,7 @@ $(document).ready(function() {
               items:3
           },
           1000:{
-              items:3
+              items:4
           }
     }
   });

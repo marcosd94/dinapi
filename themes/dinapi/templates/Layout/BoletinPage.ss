@@ -35,7 +35,7 @@
         <% if Boletines %>
           <div class="row">
             <div class="col-md-12 mt-3">
-              <% loop Boletines %>
+              <% loop Boletines.sort(Titulo, DESC) %>
                 <h4 class="noticias-titulo">
                   <a target="_blank" href="$Pdf.URL" class="boletines-new">
                     $Titulo

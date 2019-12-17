@@ -72,6 +72,7 @@
          <!--Navegacion-->
       </div>
    </div>
+   <% include NoticiasInclude %>
    <% include Banners %>
    <!-- Enlaces de Interes -->
    <div class="col-md-12 float-left clear-section light-section " id="enlaces" v-bind:style=" heightsDivs[4] ">
