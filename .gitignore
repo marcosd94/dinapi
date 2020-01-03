@@ -209,7 +209,7 @@ StyleCopReport.xml
 *.tmp
 *.tmp_proj
 *_wpftmp.csproj
-*.log
+#*.log
 *.vspscc
 *.vssscc
 .builds
@@ -488,5 +488,6 @@ public/resources/
 **/_resampled/
 **/_combined/
 
-
+dinapi-silverstripe*
+debug.log
 # End of https://www.gitignore.io/api/silverstripe

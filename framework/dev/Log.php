@@ -51,6 +51,7 @@ class SS_Log {
 	const NOTICE = Zend_Log::NOTICE;
 	const INFO = Zend_Log::INFO;
 	const DEBUG = Zend_Log::DEBUG;
+	const AUDITORIA = Zend_Log::AUDITORIA;
 
 	/**
 	 * Logger class to use.

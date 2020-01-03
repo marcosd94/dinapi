@@ -24,7 +24,10 @@ SS_Log::add_writer(new SS_LogFileWriter('../dinapi-silverstripe-errors-warnings.
 SS_Log::add_writer(new SS_LogFileWriter('../dinapi-silverstripe-errors.log'), SS_Log::ERR);
 
 // or notices (e.g. for Deprecation Notifications)
-SS_Log::add_writer(new SS_LogFileWriter('../dinapi-silverstripe-errors-notices.log'), SS_Log::NOTICE);
+SS_Log::add_writer(new SS_LogFileWriter('../dinapi-auditoria-errors-notices.log'), SS_Log::NOTICE);
+
+$fecha = date('Y-m-d');
+SS_Log::add_writer(new SS_LogFileWriter('../auditoria-logs/'.$fecha.'-dinapi-auditoria-log.log'), SS_Log::AUDITORIA);
 
 
 // Activar la búsqueda

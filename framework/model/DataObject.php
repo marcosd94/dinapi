@@ -1042,6 +1042,85 @@ class DataObject extends ViewableData implements DataObjectInterface, i18nEntity
 	 * @uses DataExtension->onAfterWrite()
 	 */
 	protected function onAfterWrite() {
+		
+		if($this->ClassName != "Auditoria"  && $this->ClassName != "Member"){
+			$operacion = "UPDATE";
+			foreach ($this->original as $clave=>$valor)
+			{
+				if($clave === "ID" &&  $valor === 0){
+					$operacion = "INSERT";
+					break;
+				}
+			}
+
+			$log = ""; 			
+			$registro = "";   
+			$log = "\n{\n\"operacion\":{\n\t\"tipo\": \"".$operacion."\",\n\t\"objeto\": \"".$this->ClassName."\"\n},";
+			$cuser = Member::currentUser();
+			$log = $log."\n\"usuario\":{\n\t\"nombres\": \"".$cuser->FirstName."\",\n";
+			if($cuser->Surname){
+			$log = $log."\t\"apellidos\": \"".$cuser->Surname."\",\n";
+			}
+			$log = $log."\t\"email\": \"".$cuser->Email."\"\n},";
+			$registro = $registro."\n\"registroNuevo\":{\n";
+			$numItems = count($this->record);
+			$i = 0;
+			$last = ",";
+			foreach ($this->record as $clave=>$valor)
+			{
+			if(++$i === $numItems) {
+				$last = "";
+			}
+			$registro = $registro."\t\"".$clave."\":\"".$valor."\"".$last."\n";
+			}
+			
+			$log = $log.''.$registro;  
+			
+			$registro = "";
+			$numItems = count($this->original);
+			$i = 0;
+			$last = ",";
+			$registro = $registro."},\n\"registroAnterior\":{\n";
+			foreach ($this->original as $clave=>$valor)
+			{
+				if(++$i === $numItems) {
+					$last = "";
+				}
+			$registro = $registro."\t\"".$clave."\":\"".$valor."\"".$last."\n";
+			}
+			$log = $log.''.$registro;   
+			$log = $log."}\n}\nFUENTE:";
+
+			
+			/******* AUDITORIA *********/
+			/*$auditoria = Auditoria::create();
+			$auditoria->Objeto = $this->ClassName;
+			$auditoria->TipoOperacion = $operacion;
+			$auditoria->NombreUsuario = $cuser->FirstName;
+			if($cuser->Surname){
+				$auditoria->ApellidoUsuario = $cuser->Surname;
+			}
+			$auditoria->Usuario = $cuser->Email;
+			$auditoria->RegistroNuevo = "{".$registro."\t}\n}";
+
+			$registro = "";
+			$i = 0;
+			$last = ",";
+			$registro = $registro."\n\"registro\":{\n";
+			foreach ($this->original as $clave=>$valor)
+			{
+				if(++$i === $numItems) {
+					$last = "";
+				}
+			$registro = $registro."\t\"".$clave."\":\"".$valor."\"".$last."\n";
+			}
+
+			$auditoria->RegistroAnterior = "{".$registro."\t}\n}";
+			$auditoria->write();
+			/****** *********/
+			SS_Log::log($log , SS_Log::AUDITORIA);
+		}
+
 		$dummy = null;
 		$this->extend('onAfterWrite', $dummy);
 	}
@@ -1056,6 +1135,76 @@ class DataObject extends ViewableData implements DataObjectInterface, i18nEntity
 	protected function onBeforeDelete() {
 		$this->brokenOnDelete = false;
 		
+		if($this->ClassName != "Auditoria"  && $this->ClassName != "Member"){
+			$operacion = "DELETE";
+			$log = ""; 			
+			$registro = "";   
+			$log = "\n{\n\"operacion\":{\n\t\"tipo\": \"".$operacion."\",\n\t\"objeto\": \"".$this->ClassName."\"\n},";
+			$cuser = Member::currentUser();
+			$log = $log."\n\"usuario\":{\n\t\"nombres\": \"".$cuser->FirstName."\",\n";
+			if($cuser->Surname){
+			$log = $log."\t\"apellidos\": \"".$cuser->Surname."\",\n";
+			}
+			$log = $log."\t\"email\": \"".$cuser->Email."\"\n},";
+			$registro = $registro."\n\"registroNuevo\":{\n";
+			$numItems = count($this->record);
+			$i = 0;
+			$last = ",";
+			foreach ($this->record as $clave=>$valor)
+			{
+			if(++$i === $numItems) {
+				$last = "";
+			}
+			$registro = $registro."\t\"".$clave."\":\"".$valor."\"".$last."\n";
+			}
+			
+			$log = $log.''.$registro;  
+			
+			$registro = "";
+			$numItems = count($this->original);
+			$i = 0;
+			$last = ",";
+			$registro = $registro."},\n\"registroAnterior\":{\n";
+			foreach ($this->original as $clave=>$valor)
+			{
+				if(++$i === $numItems) {
+					$last = "";
+				}
+			$registro = $registro."\t\"".$clave."\":\"".$valor."\"".$last."\n";
+			}
+			$log = $log.''.$registro;   
+			$log = $log."}\n}\nFUENTE:";
+
+			
+			/******* AUDITORIA *********/
+			/*$auditoria = Auditoria::create();
+			$auditoria->Objeto = $this->ClassName;
+			$auditoria->TipoOperacion = $operacion;
+			$auditoria->NombreUsuario = $cuser->FirstName;
+			if($cuser->Surname){
+				$auditoria->ApellidoUsuario = $cuser->Surname;
+			}
+			$auditoria->Usuario = $cuser->Email;
+			$auditoria->RegistroNuevo = "{".$registro."\t}\n}";
+
+			$registro = "";
+			$i = 0;
+			$last = ",";
+			$registro = $registro."\n\"registro\":{\n";
+			foreach ($this->original as $clave=>$valor)
+			{
+				if(++$i === $numItems) {
+					$last = "";
+				}
+			$registro = $registro."\t\"".$clave."\":\"".$valor."\"".$last."\n";
+			}
+
+			$auditoria->RegistroAnterior = "{".$registro."\t}\n}";
+			$auditoria->write();
+			/****** *********/
+			SS_Log::log($log , SS_Log::AUDITORIA);
+		}
+
 		$dummy = null;
 		$this->extend('onBeforeDelete', $dummy);
 	}

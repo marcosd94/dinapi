@@ -36,6 +36,7 @@ class Zend_Log
     const NOTICE  = 5;  // Notice: normal but significant condition
     const INFO    = 6;  // Informational: informational messages
     const DEBUG   = 7;  // Debug: debug messages
+    const AUDITORIA   = 8;  // Debug: debug messages
 
     /**
      * @var array of priorities where the keys are the
