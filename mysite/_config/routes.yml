@@ -6,4 +6,5 @@ Director:
   rules:
     # '': 'HomePage_Controller'
     'noticias/detalle-noticia': 'NoticiaDetalleController',    
-    'concursos/detalle-concurso': 'ConcursoDetalleController'
+    'concursos/detalle-concurso': 'ConcursoDetalleController',    
+    'documentos': 'DocumentoController'

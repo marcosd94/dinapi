@@ -65,6 +65,11 @@
           <% end_if %>          
           </li>
         <% end_loop %>
+        <li class="nav-item">
+            <a class="nav-link" id="10000000" href="{$BaseHref}documentos">
+              Documentos
+            </a>      
+        </li>
         </ul>
       <% end_if %>
       <%-- <form class="form-inline my-2 my-lg-0" method="POST" action="<?php echo $URL_Base; ?>buscar.php">

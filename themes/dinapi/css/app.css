@@ -15645,3 +15645,17 @@ figure.effect-apollo:hover .icono-eje-calendar {
     font-weight: 500;
   }
 }
+
+
+
+
+
+
+.link-documento {
+  color: #114875 !important;
+}
+.link-documento:hover {
+    color: #00a89b !important;
+    text-decoration: none !important;
+    font-size: 1.2rem;
+}
