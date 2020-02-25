@@ -21,11 +21,14 @@ $(document).ready(function () {
     var ruta = window.location.href;
     if(ruta.indexOf("centro-de-noticias")!=-1){        
         $('#1').addClass('current');
+    }else if(ruta.indexOf("documentos")!=-1){        
+        $('#10000000').addClass('current');
     }else if(ruta.indexOf("contacto")!=-1){
         $('#4').addClass('current');
     }else{
         $('#1').removeClass('current');
         $('#4').removeClass('current');
+        $('#10000000').removeClass('current');
     }
 
 });
