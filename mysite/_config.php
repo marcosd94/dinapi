@@ -26,6 +26,7 @@ SS_Log::add_writer(new SS_LogFileWriter('../dinapi-silverstripe-errors.log'), SS
 // or notices (e.g. for Deprecation Notifications)
 SS_Log::add_writer(new SS_LogFileWriter('../dinapi-auditoria-errors-notices.log'), SS_Log::NOTICE);
 
+date_default_timezone_set('America/Asuncion');
 $fecha = date('Y-m-d');
 SS_Log::add_writer(new SS_LogFileWriter('../auditoria-logs/'.$fecha.'-dinapi-auditoria-log.log'), SS_Log::AUDITORIA);
 
