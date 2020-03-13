@@ -50,7 +50,6 @@ assets/_combinedfiles/
 assets/_resampled/
 silverstripe-cache/
 .env
-vendor/
 resources/
 themes/simple/
 public/resources/
@@ -479,7 +478,7 @@ assets/_resampled/
 assets/Uploads/
 silverstripe-cache/
 .env
-vendor/
+
 resources/
 themes/simple/
 public/resources/
