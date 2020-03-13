@@ -7,8 +7,8 @@ global $databaseConfig;
 $databaseConfig = array(
 	"type" => 'MySQLDatabase',
 	"server" => 'localhost',
-	"username" => 'root',
-	"password" => '',
+	"username" => 'user_portal',
+	"password" => 'user_portal',
 	"database" => 'dinapi',
 	"path" => '',
 );
