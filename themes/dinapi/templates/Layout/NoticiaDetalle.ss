@@ -1,4 +1,4 @@
-    <style type="text/css">
+ <style type="text/css">
       div {
         font-size: 0.9rem;
       }

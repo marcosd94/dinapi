@@ -10,6 +10,27 @@ class Tarjeta extends DataObject {
   private static $singular_name = "Tarjeta";
 
   private static $plural_name = "Tarjetas";
+  
+  public function canEdit() {
+      return true;
+  }
+
+  public function canDelete() {
+      return true;
+  }
+
+  public function canCreate(){
+      return true;
+  }
+
+  public function canPublish(){
+      return true;
+  }
+
+  public function canView(){
+      return true;
+  }
+
 
   private static $has_one = array (
     'Pagina' => 'TarjetaPage',    

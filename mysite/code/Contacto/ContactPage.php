@@ -94,7 +94,7 @@ class ContactPage_Controller extends Page_Controller {
         $messageBody = "
         <div style=\"width: 75%; margin: 0% 5% 5% 5%;\">
             <div style=\"width:100%;text-align: center;\">
-                <img src=\"https://www.dinapi.gov.py/portal/v2/img/logo.png\" style=\"width: 25%;height: auto;\">
+                <img src=\"https://www.dinapi.gov.py/portal/v3/themes/dinapi/img/logo.png\" style=\"width: 25%;height: auto;\">
             </div>
             <div style=\"width:100%;text-align: center; color: #114875; margin-bottom: 30px;\">
                 <h1>Mensaje de contacto desde la página web de DINAPI</h1>

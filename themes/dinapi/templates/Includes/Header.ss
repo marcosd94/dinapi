@@ -52,24 +52,54 @@
       </ul>
       <% if ListaMenus %>	
         <ul class="navbar-nav">
-        <% loop ListaMenus %>        
-          <li class="nav-item">
-          <% if $LinkExterno != "" %>
-            <a class="$LinkingMode nav-link" id="$ID" href="$LinkExterno" target="_blank">
+        
+        <% loop ListaMenus %>
+         <% if $Padre %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle $LinkingMode" href="#" id="$Titulo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               $Titulo
-            </a>
-          <% else %>
-            <a class="$LinkingMode nav-link" id="$ID" href="{$get_permalink($LinkInterno)}">
-              $Titulo
-            </a>
-          <% end_if %>          
-          </li>
+              </a>                     
+              <div class="dropdown-menu" aria-labelledby="$Titulo">                  
+                  <% loop $getHijos() %>
+                      <% if $LinkExterno != "" %>
+                        <a class="dropdown-item $LinkingMode" id="$ID" href="$LinkExterno" target="_blank" 
+                        <% if $Destacado %> style="color: #8cc63e !important;" <% end_if %>  >
+                          $Titulo
+                        </a>
+                      <% else %>
+                        <a class="dropdown-item $LinkingMode" id="$ID" href="{$get_permalink($LinkInterno)}"
+                        <% if $Destacado %> style="color: #8cc63e !important;" <% end_if %>  >
+                          $Titulo
+                        </a>
+                      <% end_if %>
+                  <% end_loop %>
+              </div>
+            </li>
+         <% else %>
+          <% if $Hijo == 0 %>
+            <li class="nav-item">
+            <% if $LinkExterno != "" %>
+              <a class="$LinkingMode nav-link" id="$ID" href="$LinkExterno" target="_blank" 
+              <% if $Destacado %> style="color: #8cc63e !important;" <% end_if %>  >
+                $Titulo
+              </a>
+            <% else %>
+              <a class="$LinkingMode nav-link" id="$ID" href="{$get_permalink($LinkInterno)}"
+              <% if $Destacado %> style="color: #8cc63e !important;" <% end_if %>  >
+                $Titulo
+              </a>
+            <% end_if %>          
+            </li>
+          <% end_if %>
+         <% end_if %>
+          
         <% end_loop %>
-        <li class="nav-item">
+            <%--     <li class="nav-item">
             <a class="nav-link" id="10000000" href="{$BaseHref}documentos">
               Documentos
             </a>      
-        </li>
+        </li> --%>
+
         </ul>
       <% end_if %>
       <%-- <form class="form-inline my-2 my-lg-0" method="POST" action="<?php echo $URL_Base; ?>buscar.php">

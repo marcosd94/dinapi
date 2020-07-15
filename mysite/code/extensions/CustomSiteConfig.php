@@ -11,7 +11,8 @@ class CustomSiteConfig extends DataExtension {
         'InstagramLink' => 'Varchar(255)',
         'TwitterLink' => 'Varchar(255)',
         'LinkedinLink'=> 'Varchar(255)',
-        'MostrarPopUp' => 'Boolean'
+        'MostrarPopUp' => 'Boolean',
+        'VideoLink'=> 'Varchar(255)'
     );
 
     private static $has_one = array (
@@ -33,6 +34,8 @@ class CustomSiteConfig extends DataExtension {
         CheckboxField::create('MostrarPopUp','Desea mostrar el popUp con la imagen determinada en el campo superior?')
       )->setTitle('Mostrar PopUp')->setName('Mostrar PopUp')
       );
+      
+      $fields->addFieldToTab('Root.Main', new TextField('VideoLink','Link del video a mostrar'));
       
     }
 }

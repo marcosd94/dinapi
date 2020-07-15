@@ -13,6 +13,10 @@ $databaseConfig = array(
 	"path" => '',
 );
 
+
+Security::setDefaultAdmin('admin', 'd1n4p1$2019');
+
+
 // Set the site locale
 i18n::set_locale('es_PY');
 setlocale(LC_TIME, 'es_PY.utf8'); 

@@ -7,4 +7,5 @@ Director:
     # '': 'HomePage_Controller'
     'noticias/detalle-noticia': 'NoticiaDetalleController',    
     'concursos/detalle-concurso': 'ConcursoDetalleController',    
-    'documentos': 'DocumentoController'
+    'documentos': 'DocumentoController',
+    'bibliotecas/detalle-biblioteca': 'BibliotecaDetalleController' 

@@ -14,6 +14,49 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <% if Noticia %>
+      <% loop Noticia %>
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="maximum-scale=2.0" />
+
+          <!--Tags-->
+
+          <!--Google-->
+          <meta
+            name="description"
+            content="La DINAPI es el ente p&uacute;blico que dise&ntilde;a, implementa y fomenta y coordina las pol&iacute;ticas de propiedad intelectual en el Paraguay"
+          />
+          <meta
+            name="keywords"
+            content="propiedad intelectual, derecho de autor, observancia, patentes"
+          />
+
+          <!--Facebook-->
+          <meta property="og:title" content="$Titulo" />
+          <meta
+            property="og:description"
+            content="$Titulo"
+          />
+          <meta property="og:image" content="$Imagen.URL" />
+          <meta property="og:type" content="website" />
+
+          <!--Twitter-->
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:url" content="https://www.dinapi.gov.py/portal/v3/noticias/detalle-noticia?idNoticia=$ID" />
+          <meta property="twitter:image" content="$Imagen.URL" />
+          <meta
+            name="twitter:title"
+            content="$Titulo"
+          />
+          <meta
+            name="twitter:description"
+            content="$Titulo"
+          />
+      <% end_loop %>
+      
+      <% else %>
+      
     
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -24,7 +67,7 @@
     <!--Google-->
     <meta
       name="description"
-      content="La DINAPI es el ente público que diseña, implementa y fomenta y coordina las políticas de propiedad intelectual en el Paraguay"
+      content="La DINAPI es el ente p&uacute;blico que dise&ntilde;a, implementa y fomenta y coordina las pol&iacute;ticas de propiedad intelectual en el Paraguay"
     />
     <meta
       name="keywords"
@@ -34,11 +77,11 @@
     <!--Facebook-->
     <meta
       property="og:title"
-      content="DINAPI: Dirección Nacional de Propiedad Intelectual"
+      content="DINAPI: Direcci&oacute;n Nacional de Propiedad Intelectual"
     />
     <meta
       property="og:description"
-      content="La DINAPI es el ente público que diseña, implementa y fomenta y coordina las políticas de propiedad intelectual en el Paraguay"
+      content="La DINAPI es el ente p&uacute;blico que dise&ntilde;a, implementa y fomenta y coordina las pol&iacute;ticas de propiedad intelectual en el Paraguay"
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="$ThemeDir/img/logo.png" />
@@ -50,13 +93,13 @@
     <meta property="twitter:image" content="$ThemeDir/img/logo.png" />
     <meta
       name="twitter:title"
-      content="DINAPI: Dirección Nacional de Propiedad Intelectual"
+      content="DINAPI: Direcci&oacute;n Nacional de Propiedad Intelectual"
     />
     <meta
       name="twitter:description"
-      content="La DINAPI es el ente público que diseña, implementa y fomenta y coordina las políticas de propiedad intelectual en el Paraguay"
+      content="La DINAPI es el ente p&uacute;blico que dise&ntilde;a, implementa y fomenta y coordina las pol&iacute;ticas de propiedad intelectual en el Paraguay"
     />
-
+  <% end_if %>
     <title>DINAPI | Dirección Nacional de Propiedad Intelectual</title>
     <link href="$ThemeDir/css/bootstrap.css" rel="stylesheet" />
     <link href="$ThemeDir/css/app.css" rel="stylesheet" />
@@ -126,13 +169,13 @@
       <script type="text/javascript">
         
          <% if $SiteConfig.MostrarPopUp  %>
-            var comprobar = getCookie("avisooff1");
+            var comprobar = getCookie("{$SiteConfig.ImagenCompleta.ID}");
             if (comprobar != null) {
             }
             else {
             var expiration = new Date();
-            expiration.setTime(expiration.getTime() + (60000*60*24*1));
-            setCookie("avisooff1","1",expiration, '/');
+            expiration.setTime(expiration.getTime() + (60000*60*24*7));
+            setCookie("{$SiteConfig.ImagenCompleta.ID}","1",expiration, '/');
             //document.getElementById("aviso_off").style.display="block";
             
                 $(document).ready(function(){
@@ -143,10 +186,10 @@
             
          <% else %>
          
-            var comprobar = getCookie("avisooff1");
+            var comprobar = getCookie("{$SiteConfig.ImagenCompleta.ID}");
             if (comprobar != null) {
-              delCookie("avisooff1");
-              console.log("cookie eliminada");
+              delCookie("{$SiteConfig.ImagenCompleta.ID}");
+              //console.log("cookie eliminada");
             }
          <% end_if %>
       </script>
@@ -192,7 +235,17 @@
             </button>
           </div>
           <div class="modal-body">
+         <% if $SiteConfig.VideoLink == ""  %>
             <img src="$SiteConfig.ImagenCompleta.URL" class="img-fluid">
+            
+      <% else %>
+
+            <video id="myVideo" style="width:100%;max-width:100%;" controls>
+              <source src="{$BaseHref}{$SiteConfig.VideoLink}" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            
+      <% end_if %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

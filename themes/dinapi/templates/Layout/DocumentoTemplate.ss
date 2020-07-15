@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-8 mt-0 information-texto">
                 <div class="noticias-texto col-md-12" >
-                  <form id="SearchForm_SearchForm" action="/dinapi/documentos" method="get"
+                  <form id="SearchForm_SearchForm" action="/portal/v3/documentos" method="get"
                     enctype="application/x-www-form-urlencoded" 
                     class="col-md-12 col-xs-12">
                     <div class="col-md-3" style="display: inline-block;">
