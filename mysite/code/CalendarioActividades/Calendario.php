@@ -10,28 +10,6 @@ class Calendario extends DataObject {
 
   private static $plural_name = "Calendarios";
   
-  public function canEdit() {
-      return true;
-  }
-
-  public function canDelete() {
-      return true;
-  }
-
-  public function canCreate(){
-      return true;
-  }
-
-  public function canPublish(){
-      return true;
-  }
-
-  public function canView(){
-      return true;
-  }
-
-
-  
   private static $summary_fields = array (
       'Nombre' => 'Nombre',
       'Descripcion' => 'Descripción',

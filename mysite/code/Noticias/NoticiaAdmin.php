@@ -7,7 +7,7 @@ class NoticiaAdmin extends ModelAdmin {
     private static $url_segment = 'noticia';
 
     private static $managed_models = array (
-        'Noticia'
+        'Noticia','CategoriaNoticia'
     );
 
     private static $menu_icon = 'mysite/iconos/news.png';

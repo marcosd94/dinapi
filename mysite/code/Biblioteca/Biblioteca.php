@@ -24,7 +24,7 @@ class Biblioteca extends DataObject {
     'DescripcionVideos' => 'Varchar(500)',
     'DescripcionImagenes' => 'Varchar(500)',
     'DescripcionDocumentos' => 'Varchar(500)',
-    'EnlacesReferencias' => 'HTMLText'     
+    'EnlacesReferencias' => 'HTMLText'
   );
   
   private static $singular_name = "Biblioteca";
@@ -60,13 +60,15 @@ class Biblioteca extends DataObject {
    * define las relaciones con otras clases
    */  
   private static $has_one = array (
-    'ImagenPrincipal' => 'Image'
+    'ImagenPrincipal' => 'Image',
+    'Categoria' => 'CategoriaBiblioteca'
   );
 
   private static $many_many = array (
     'Videos' => 'File',
     'Imagenes' => 'Image',
-    'Documentos' => 'File'
+    'Documentos' => 'File',
+    'Etiquetas' => 'EtiquetaBiblioteca'
   );
 
   /**
@@ -95,6 +97,13 @@ class Biblioteca extends DataObject {
     $fields = parent::getCMSFields();
     $fields = FieldList::create(
         TextField::create('Titulo', 'Titulo'),
+        DropdownField::create('CategoriaID', 'Categoria', CategoriaBiblioteca::get()->map('ID', 'Categoria'))
+        ->setEmptyString('(Seleccione una categoria )'),
+        ListboxField::create(
+          'Etiquetas',
+          'Etiquetas',
+          EtiquetaBiblioteca::get()->map('ID', 'Etiqueta')->toArray()
+        )->setMultiple(true)->setAttribute('data-placeholder', 'Seleccionar etiqueta(es)'),
         $uploaderImagenPrincipal = UploadField::create('ImagenPrincipal', 'Imágen principal'),
         HTMLEditorField::create('Descripcion', 'Descripción de la biblioteca'),
 
@@ -132,7 +141,7 @@ class Biblioteca extends DataObject {
    * define los campos obligatarios en el formulario de carga para esta clase
    */
   function getCMSValidator() {
-      return new RequiredFields(array('Titulo', 'ImagenPrincipal', 'Descripcion'));
+      return new RequiredFields(array('Titulo', 'ImagenPrincipal', 'Descripcion', 'CategoriaID'));
   }
 
   /**

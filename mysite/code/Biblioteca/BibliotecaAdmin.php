@@ -22,7 +22,7 @@ class BibliotecaAdmin extends ModelAdmin {
      * define las clases que va a poder manejar el actual item del administrador
      */
     private static $managed_models = array (
-        'Biblioteca'
+        'Biblioteca', 'CategoriaBiblioteca', 'EtiquetaBiblioteca'
     );
 
     private static $menu_icon = 'mysite/iconos/desplegable-page.png';
