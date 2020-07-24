@@ -152,7 +152,31 @@ class Biblioteca extends DataObject {
    * de la noticia para utilizarlo como epigrafe de la noticia
    */
   function getEpigrafe($texto) {
-    return substr(strip_tags($texto), 0, 330);
+    return substr(strip_tags($texto), 0, 220);
+  }
+
+  function getCategoria() {
+    return CategoriaBiblioteca::get()->byID($this->CategoriaID)->Categoria;
+  }
+  
+  function getEtiquetasLabel() {
+			
+      $query = DB::query('SELECT eb.* FROM Biblioteca b 
+      JOIN Biblioteca_Etiquetas be ON be.BibliotecaID = b.ID
+      JOIN EtiquetaBiblioteca eb ON eb.ID = be.EtiquetaBibliotecaID
+      WHERE b.ID ='.$this->ID);
+  
+      $output = ArrayList::create();
+      if ($query) {
+        foreach ($query as $item) {
+          $output->push( ArrayData::create(array(
+            'ID' => $item['ID'],
+            'Etiqueta' => $item['Etiqueta']
+          )));
+        }
+      
+        return $output;
+      }
   }
 
 }

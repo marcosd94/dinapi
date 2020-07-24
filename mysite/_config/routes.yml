@@ -8,4 +8,5 @@ Director:
     'noticias/detalle-noticia': 'NoticiaDetalleController',    
     'concursos/detalle-concurso': 'ConcursoDetalleController',    
     'documentos': 'DocumentoController',
+    'biblioteca/$ID': 'BibliotecaPageController' ,
     'bibliotecas/detalle-biblioteca': 'BibliotecaDetalleController' 

@@ -1,69 +1,62 @@
-    <% if Biblioteca %>
-      <% loop Biblioteca %>
-          <meta charset="utf-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="maximum-scale=2.0" />
 
-          <!--Tags-->
-
-          <!--Google-->
-          <meta
-            name="description"
-            content="La DINAPI es el ente público que diseña, implementa y fomenta y coordina las políticas de propiedad intelectual en el Paraguay"
-          />
-          <meta
-            name="keywords"
-            content="propiedad intelectual, derecho de autor, observancia, patentes"
-          />
-
-          <!--Facebook-->
-          <meta property="og:title" content="$Titulo" />
-          <meta
-            property="og:description"
-            content="$Titulo"
-          />
-          <meta property="og:image" content="$ImagenPrincipal.URL" />
-          <meta property="og:type" content="website" />
-
-          <!--Twitter-->
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:url" content="url-here" />
-          <meta property="twitter:image" content="$ImagenPrincipal.URL" />
-          <meta
-            name="twitter:title"
-            content="$Titulo"
-          />
-          <meta
-            name="twitter:description"
-            content="$Titulo"
-          />
-      <% end_loop %>
-  <% end_if %>
-    
-    <style type="text/css">
-      div {
-        font-size: 0.9rem;
-      }
-      img {
-        margin-bottom: 20px;
-      }
-    </style>     
-     
-      <div class="float-left information-header head2 head_noticias">
-
-        <div class="float-left" id="main-image">
-          <!--img src="img/logo.png" class="col-md-6 col-sm-12" id="img1" /-->
-        </div>
-      </div>
       <div class="col-md-12 clear-section float-left pt-5 " id="information-container">
-        <%-- <div class="col-md-12 bread">
-          <div>Biblioteca virtual</div>
-        </div> --%>
+        
+      <div class="clearfix"></div>
 
         <div class="row">
-            <div class="col-md-5 sidebar-links mt-0">
-                <h1 style="padding: 20px 0px !important;">Biblioteca virtual</h1>
+            
+          <div class="col-md-3 sidebar-links filter-margin">
+            <div class="list-group" id="myList">        
+              <ul class="list-group biblioteca-mobile" >
+                <li class="list-group-item head-biblioteca collapsed" data-toggle="collapse" data-target="#colapse-filter" aria-expanded="true">            
+                  <span style="float:left;" class="if-collapsed"><i class="fa fa-filter"></i> MOSTRAR FILTROS</span> 
+                  <span style="float:left;" class="if-not-collapsed"><i class="fa fa-filter"></i> FILTROS</span> 
+                  <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros"><i class="fa fa-refresh"  id="refresh"></i></a>
+                </li>
+              </ul>
+              <ul class="list-group biblioteca-mobile collapse" id="colapse-filter"> 
+                <li class="list-group-item search-biblioteca">
+                  <form id="SearchForm_SearchForm" action="" method="get"
+                    enctype="application/x-www-form-urlencoded" 
+                    class="col-md-12 col-xs-12">    
+                    <div class="input-group" >                
+                        <input type="text" name="busqueda" value="$busqueda" id="busqueda" 
+                        class="text form-control search-input" 
+                        placeholder="Título, Categoría, Etiqueta">  
+                        <button class="action btn btn-primary search-button" type="submit">Buscar</button>      
+                    </div>
+                  </form>
+                </li>
+                <% loop ListaCategorias %>
+                  <a class="list-group-item d-flex justify-content-between align-items-center item-categoria" id="categoria-$ID"  href="biblioteca/$ID">$Categoria
+                  <span class="badge badge-primary badge-pill">$Cantidad</span></a>
+                <% end_loop %>
+              </ul>
+              <ul class="list-group biblioteca-desktop">
+                <li class="list-group-item head-biblioteca biblioteca-desktop">            
+                 <span style="float:left;"><i class="fa fa-filter"></i> FILTROS</span> 
+                 <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros"><i class="fa fa-refresh"  id="refresh"></i></a>
+                </li>
+                <li class="list-group-item search-biblioteca">
+                  <form id="SearchForm_SearchForm" action="" method="get"
+                    enctype="application/x-www-form-urlencoded" 
+                    class="col-md-12 col-xs-12">    
+                    <div class="input-group" >                
+                        <input type="text" name="busqueda" value="$busqueda" id="busqueda" 
+                        class="text form-control search-input" 
+                        placeholder="Título, Categoría, Etiqueta">  
+                        <button class="action btn btn-primary search-button" type="submit">Buscar</button>      
+                    </div>
+                  </form>
+                </li>
+                <% loop ListaCategorias %>
+                  <a class="list-group-item d-flex justify-content-between align-items-center item-categoria" id="categoria-$ID"  href="biblioteca/$ID">$Categoria
+                  <span class="badge badge-primary badge-pill">$Cantidad</span></a>
+                <% end_loop %>
+              </ul>
             </div>
+          </div>
+          <div class="col-md-9">
             <div class="col-md-12 mt-0 information-texto">
                 <div class="container-biblioteca noticias-texto">
                     
@@ -78,12 +71,59 @@
                               <h2 class="biblioteca-detalle-titulo">
                                   $Titulo
                               </h2>
+                              <div>
                                 $Descripcion
+                              </div>
+                              
+                               
+                              <%-- CATEGORIAS --%>              
+                              <div class="row">
+                                <div class="col-md-12 noticias-parrafos">
+                                  <div> 
+                                    <h2 class="biblioteca-detalle-titulo biblioteca-texto">
+                                        Categorías
+                                    </h2>
+                                    <div class="biblioteca-texto">
+                                      <div class="categoria">
+                                        <span class="detalles">
+                                          $getCategoria
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>  
+                                </div>
+                              </div>
+                              <hr>
+                          
+                              <%-- ETIQUETAS --%>  
+                              <% if getEtiquetasLabel %>             
+                                <div class="row">
+                                  <div class="col-md-12 noticias-parrafos">
+                                    <div> 
+                                      <h2 class="biblioteca-detalle-titulo biblioteca-texto">
+                                          Etiquetas
+                                      </h2>
+                                      <div class="biblioteca-texto">
+                                        <div class="categoria">                                        
+                                          <% loop getEtiquetasLabel %>
+                                            <div class="margin-etiqueta">
+                                              <span class="detalles">
+                                                $Etiqueta
+                                              </span>
+                                            </div>
+                                          <% end_loop %>
+                                        </div>
+                                      </div>
+                                    </div>  
+                                  </div>
+                                </div>
+                                <hr>
+                              <% end_if %>
                             </div>
                           </div>
-                          <hr>
+
                           <%-- VIDEOS --%>
-                          <% if $Videos %>                   
+                          <% if $Videos %>                  
                             <div class="row">
                               <div class="col-md-12 noticias-parrafos">
                                 <div> 
@@ -95,20 +135,33 @@
                                   </div>
                                 </div>
                                 <div class="row biblioteca-texto">
-                                  <% loop Videos %>
-                                    <div class="col-biblioteca video-container">
-                                      <video id="$ID" style="width:100%;max-width:100%;" controls>
-                                        <source src="$URL" type="video/mp4">
-                                        Tu navegador no soporta HTML5 video.
-                                      </video>
-                                      <div class="title">$Title</div>
-                                    </div>
-                                  <% end_loop %>
+                                  <% if $Videos.Count < 2 %>
+                                      <% loop Videos %>
+                                        <div class="single-col-biblioteca video-container">
+                                          <video id="$ID" style="width:100%;max-width:100%;" controls>
+                                            <source src="$URL" type="video/mp4">
+                                            Tu navegador no soporta HTML5 video.
+                                          </video>
+                                          <div class="title">$Title</div>
+                                        </div>
+                                      <% end_loop %>                                  
+                                  <% else %>
+                                      <% loop Videos %>
+                                        <div class="col-biblioteca video-container">
+                                          <video id="$ID" style="width:100%;max-width:100%;" controls>
+                                            <source src="$URL" type="video/mp4">
+                                            Tu navegador no soporta HTML5 video.
+                                          </video>
+                                          <div class="title">$Title</div>
+                                        </div>
+                                      <% end_loop %>                                  
+                                  <% end_if %>
                                 </div>  
                               </div>
                             </div>
                             <hr>  
                           <% end_if %>
+
                           <%-- IMAGENES --%>
                           <% if $Imagenes %>                   
                             <div class="row">
@@ -122,17 +175,28 @@
                                   </div>
                                 </div>
                                 <div class="row biblioteca-texto">
-                                  <% loop Imagenes %>
-                                    <div class="col-biblioteca video-container">
-                                      <img src="$URL" class="img-fluid" style="margin-bottom:0px;">
-                                      <div class="title">$Title</div>
-                                    </div>
-                                  <% end_loop %>
+                                  
+                                  <% if $Imagenes.Count < 2 %>   
+                                    <% loop Imagenes %>
+                                      <div class="single-col-biblioteca video-container">
+                                        <img src="$URL" class="img-fluid img-biblioteca" style="margin-bottom:0px;">
+                                        <div class="title">$Title</div>
+                                      </div>
+                                    <% end_loop %>                              
+                                  <% else %>
+                                    <% loop Imagenes %>
+                                      <div class="col-biblioteca video-container">
+                                        <img src="$URL" class="img-fluid" style="margin-bottom:0px;">
+                                        <div class="title">$Title</div>
+                                      </div>
+                                    <% end_loop %>
+                                <% end_if %>
                                 </div>  
                               </div>
                             </div>
                             <hr>  
                           <% end_if %>
+
                           <%-- DOCUMENTOS --%>
                           <% if $Documentos %>                   
                             <div class="row">
@@ -146,42 +210,39 @@
                                   </div>
                                 </div>
                                 <div class="row biblioteca-texto">
-                                  <% loop Documentos %>
-                                    <div class="col-biblioteca video-container">
-                                      <embed src="$URL" type="application/pdf" width="100%" class="biblioteca-documento" />
-                                      <div class="title">
-                                          <a target="_blank" href="$URL">$Title [Ver documento <i class="fa fa-eye"></i>]</a>
+                                  <% if $Documentos.Count < 2 %>  
+                                    <% loop Documentos %>
+                                      <div class="single-col-biblioteca video-container">
+                                        <embed src="$URL" type="application/pdf" width="100%" class="single-biblioteca-documento" />
+                                        <div class="title">
+                                            <a target="_blank" href="$URL">$Title [Ver documento <i class="fa fa-eye"></i>]</a>
+                                        </div>
                                       </div>
-                                    </div>
-                                  <% end_loop %>
+                                    <% end_loop %>                               
+                                  <% else %>
+                                    <% loop Documentos %>
+                                      <div class="col-biblioteca video-container">
+                                        <embed src="$URL" type="application/pdf" width="100%" class="biblioteca-documento" />
+                                        <div class="title">
+                                            <a target="_blank" href="$URL">$Title [Ver documento <i class="fa fa-eye"></i>]</a>
+                                        </div>
+                                      </div>
+                                    <% end_loop %>
+                                  <% end_if %>
                                 </div>  
                               </div>
                             </div>
                             <hr>  
                           <% end_if %>
+
                           <%-- ENLACES Y REFERENCIAS --%>
-                          <% if $EnlacesReferencias %>
-                          
+                          <% if $EnlacesReferencias %>                          
                             <div class="noticias-parrafos">
                               <h2 class="biblioteca-detalle-titulo">
                                   Enlaces y Referencias
                               </h2>
                               $EnlacesReferencias
-                            </div>               
-                            <%-- <div class="row">
-                              <div class="col-md-12 noticias-parrafos">
-                                <div> 
-                                  <h2 class="biblioteca-detalle-titulo biblioteca-texto">
-                                      Enlaces y Referencias
-                                  </h2>
-                                </div>
-                                <div class="row biblioteca-texto">                                  
-                                  <div class="biblioteca-texto referencias">
-                                    $EnlacesReferencias
-                                  </div>
-                                </div>  
-                              </div>
-                            </div> --%>
+                            </div>
                             <hr>  
                           <% end_if %>
                             
@@ -189,5 +250,35 @@
                     <% end_if %>
                 </div>
             </div>
+          </div>
         </div>
       </div>
+
+
+      <script type="text/javascript">    
+        $(document).ready(function(){
+  
+          $('#myList a').on('click', function (e) {
+            e.preventDefault();
+            id = e.target.id.replace('categoria-', '');
+            if(id == 'refresh'){
+              location.href='biblioteca';
+            }else{ 
+              const queryString = window.location.search;
+              const urlParams = new URLSearchParams(queryString);
+              var busqueda = urlParams.get('busqueda');  
+              if(urlParams.has('busqueda') && busqueda != ''){           
+                location.href='biblioteca/'+id+'?busqueda='+busqueda;
+              }else{
+                location.href='biblioteca/'+id;
+              }
+            }
+          })
+          
+          /*var res = window.location.pathname.split("/");
+          if(typeof res[3] != "undefined"){
+            var element = document.getElementById("categoria-"+res[3]);
+            element.classList.add("active");
+          }*/
+        });
+  </script>

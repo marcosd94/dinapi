@@ -38,7 +38,7 @@
               <% else %>
                 <a target="_blank" href="$LinkExterno">
               <% end_if %>
-                  $Titulo
+                  <%-- $ID -  --%>$Titulo
                 </a>
               </h4><hr/>     
             <% end_loop %>     

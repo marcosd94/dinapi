@@ -33,10 +33,14 @@
                         <h2 class="noticias-titulo">
                             $Titulo
                         </h2>
+                        
+                        <% if Fecha %>
+                          <p class="date-noticia"> $Fecha.Format('d-m-Y')</p>
+                        <% end_if %>
                         </div>
                         <div class="col-md-12 noticias-parrafos">
                         
-                        <img src="$Imagen.URL" class="img-fluid">
+                        <img src="$Imagen.URL" class="img-fluid img-noticia">
                         <div>
                             $Content           
                         </div>   

@@ -21,14 +21,15 @@ class Archivo extends DataObject {
    */
   private static $db = array (
     'Titulo' => 'Text',
-    'LinkExterno' => 'Varchar(255)'
+    'LinkExterno' => 'Varchar(255)',
+    'FechaOrdenamiento' => 'Date'
   );
 
   private static $singular_name = "Archivo";
 
   private static $plural_name = "Archivos";
 
-  private static $default_sort = 'Created DESC';
+  private static $default_sort = 'FechaOrdenamiento DESC, Created DESC';
   
   public function canEdit() {
       return true;
@@ -70,8 +71,10 @@ class Archivo extends DataObject {
    * cargados para esta clase en el administrador del sitio
    */  
   private static $summary_fields = array (
+      'ID' => 'ID',  
       'Titulo' => 'Titulo',  
-      'LinkExterno' => 'Link Externo'
+      'LinkExterno' => 'Link Externo',
+      'FechaOrdenamiento.Nice' => 'Fecha ordenamiento',
   );
 
 
@@ -86,6 +89,7 @@ class Archivo extends DataObject {
     $fields = FieldList::create(
       TextareaField::create('Titulo', 'Titulo'),
       TextField::create('LinkExterno', 'Link a página externa'),
+      DateField::create('FechaOrdenamiento', 'Fecha de ordenamiento') ->setConfig('showcalendar', true),
       $uploaderPdf = UploadField::create('Pdf', 'PDF correspondiente al boletin')
     );
     

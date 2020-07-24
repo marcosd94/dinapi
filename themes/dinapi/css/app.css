@@ -15689,11 +15689,12 @@ figure.effect-apollo:hover .icono-eje-calendar {
 /* PASO 22/05/2020 */
 
 .container-biblioteca {
-  width: 90%;
-  padding-right: 15px;
+  width: 100%;
+  margin: 0 auto;
+  /* padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
-  margin-left: auto; 
+  margin-left: auto;  */
 }
 /* @media (min-width: 576px) {
   .container-biblioteca {
@@ -15812,3 +15813,314 @@ figure.effect-apollo:hover .icono-eje-calendar {
 
 
 
+.item-categoria {
+  color: #1c2d36;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+
+/********** BIBLIOTECA *********/
+
+.mm_entry {
+  height: 0;
+  min-height: 0;
+  padding-bottom: 70%;
+}
+.mm_entry {
+  float: left;
+  width: 33.33333333%;
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 0){
+  .mm_entry {
+      float: left;
+      width: 50%;
+  }
+}
+@media (min-width: 480px){
+  .mm_entry {
+      padding-bottom: 48%;
+      float: left;
+      width: 33.33333333%;
+  }
+}
+@media (min-width: 768px){
+  #footer #footer-content .nav-grouping, .mm_entry {
+      float: left;
+      width: 33.33333333%;
+  }
+}
+@media (min-width: 992px){
+  .mm_entry {
+      padding-bottom: 36%;
+      float: left;
+      width: 25%;
+  }
+}
+@media (min-width: 1200px){
+  .mm_entry {
+      float: left;
+      width: 25%;
+  }
+}
+@media (min-width: 1400px){
+  .mm_entry {
+      float: left;
+      width: 16.66666667%;
+      padding-bottom: 24%;
+  }
+}
+.mm_entry .item-container {
+  bottom: 0;
+  left: 6px;
+  margin: 15px 12px 5px 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: -moz-available;
+}
+
+.mm_entry .item-container .image-cover {
+  border: 1px solid #ccc;
+  height: 100%;
+  transition: all .3s ease 0s;
+}
+
+.mm_entry .item-container .image-cover a {
+  /* background: url(https://openlibra.blob.core.windows.net/assets/images/layout/no-cover.png) no-repeat scroll center center/100% 100% #ccc; */
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.mm_entry .item-container .image-cover a:hover .cover-overlay {
+  height: 100%;
+  opacity: 1;
+}
+.mm_entry .item-container .image-cover a .cover-overlay {
+  background: none repeat scroll 0 0 rgba(40,50,60,.9);
+  bottom: 0;
+  color: #fff;
+  height: 98%;
+  opacity: 0;
+  padding: 0 10px;
+  position: absolute;
+  transition: all .2s linear 0s;
+  width: 100%;
+  z-index: 2;
+}
+
+.mm_entry .item-container .image-cover a .cover-overlay .book-details {
+  position: relative;
+}
+.mm_entry .item-container .image-cover a .cover-overlay .book-details .book-details-content {
+  margin-top: 4em;
+}
+.opaque {
+  opacity: 1!important;
+}
+
+.mm_entry .item-container .image-cover a img {
+  display: block;
+  height: 101%;
+  line-height: 40px;
+  margin-left: -1px!important;
+  margin-top: -1px;
+  text-align: center;
+  white-space: pre-wrap;
+  width: 102%;
+}
+
+.mm_entry .item-container .image-cover a .cover-overlay .book-details .book-details-content h2 {
+  border-bottom: 1px solid #fff;
+  font-size: 3em;
+  font-weight: 700;
+  height: 2.5em;
+  letter-spacing: -.04em;
+  line-height: 1.2em;
+  margin: 0 10px 1em;
+  overflow: hidden;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.mm_entry .item-container .image-cover a .cover-overlay .book-details .book-details-content p {
+  font-size: 2.5em;
+  line-height: 1.4em;
+  padding: 0 0 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.badge-pill {
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+}
+
+.badge {
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+.active .badge-primary {
+  color: #1c2d36;
+  background-color: #ffffff;
+}
+
+.search-biblioteca{
+  padding: 0.75rem 0rem;
+}
+
+.search-input{
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.search-button{
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+.item-categoria:hover {
+  background-color: #cfcfcf;    
+  color: #1c2d36 !important;
+}
+.list-group-item.active:hover {
+  z-index: 2;
+  color: #fff !important;
+  background-color: #1c2d36;
+  border-color: #1c2d36;
+}
+
+
+.alert-result {
+  padding: 1rem;
+  text-align: center;
+  margin: 0 10%;
+}
+.warning-search {
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  font-size: 1.5rem;
+  vertical-align: middle;
+
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+  font-weight: bold;
+
+}
+
+.page-number{
+  margin: 0 auto;
+}
+.head-biblioteca{
+  background-color: #00a89b;
+  text-align: center;
+  float: left;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+.h3-head{
+  margin-bottom: 0rem;
+}
+.refresh-filter{
+  float:right;
+}
+.refresh-filter:hover{
+  color: #1c2d36 !important;
+}
+.categoria{
+  margin-top:3rem;
+}
+.categoria .detalles{
+  background-color: #00a89b;
+  color: #FFFFFF;
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 0.2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0.5rem;
+  text-transform: uppercase;
+}
+
+.single-col-biblioteca{
+  min-width: 90%;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.single-biblioteca-documento{
+  height:600px;
+}
+@media (min-width: 0px){  
+  .single-biblioteca-documento{
+    height:200px;
+  }
+}
+@media (min-width: 991px){
+  .single-biblioteca-documento{
+    height:400px;
+  }
+}
+@media (min-width: 1360px){
+  .single-biblioteca-documento{
+    height:600px;
+  }
+}
+
+.img-biblioteca{
+  width: 100%;
+}
+
+.margin-etiqueta{
+  display: inline-block;
+  margin: 0.6rem 0;
+}
+
+
+@media (max-width: 991px){
+  .pt-5{
+    padding-top: 1rem !important;
+  }
+}
+
+.biblioteca-mobile{
+  display: none;
+}
+[data-toggle="collapse"].collapsed .if-not-collapsed {
+  display: none;
+}
+[data-toggle="collapse"]:not(.collapsed) .if-collapsed {
+  display: none;
+}
+
+@media (max-width: 767px){
+  .biblioteca-mobile{
+    display: inherit;
+  }
+  .biblioteca-desktop{
+    display: none;
+  }
+}
+
+.filter-margin{
+  margin-bottom: 1rem;
+}
+
+.date-noticia{
+  text-align: right !important;
+  color: #495057 !important;
+  font-weight: bold !important;
+  font-family: "Futura", sans-serif !important;
+  margin-top: 5px !important;
+}
+.img-noticia{
+  width: 100%;
+  height: auto;
+}
