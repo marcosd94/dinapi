@@ -20,7 +20,7 @@ class BibliotecaPageController extends Page_Controller {
 		LEFT JOIN EtiquetaBiblioteca eb ON eb.ID = be.EtiquetaBibliotecaID
 		LEFT JOIN File f on f.ID = b.ImagenPrincipalID ';
 		if($paramID != ""){
-			$sql = $sql. 'WHERE B.CategoriaID = '.$paramID;
+			$sql = $sql. 'WHERE b.CategoriaID = '.$paramID;
 		}
 
 		if($busqueda != ""){
@@ -39,6 +39,8 @@ class BibliotecaPageController extends Page_Controller {
 					UPPER(eb.Etiqueta) LIKE UPPER(\'%'.$busqueda.'%\')';
 			}
 		}
+		$sql = $sql.' ORDER BY b.Created DESC';
+		
 		$query = DB::query($sql);
 
 		$output = ArrayList::create();
@@ -46,7 +48,7 @@ class BibliotecaPageController extends Page_Controller {
 			foreach ($query as $item) {
 				$output->push( ArrayData::create(array(
 					'ID' => $item['ID'],
-					'Titulo' => $item['Titulo'],
+					'Titulo' => htmlentities($item['Titulo']),
 					'Descripcion' => substr(strip_tags($item['Descripcion']), 0, 220).'...',
 					'ImagenPrincipal' => $item['Filename']
 				)));
