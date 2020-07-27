@@ -1,3 +1,5 @@
+
+
 <div class="col-md-12 clear-section float-left pt-5 "id="information-container">
   <div class="clearfix"></div>
   <div class="row">
@@ -60,7 +62,7 @@
              <div class="item-container">
                 <div class="image-cover">
                    <a title="$Titulo" href="bibliotecas/detalle-biblioteca?idBiblioteca=$ID">
-                      <div class="cover-overlay no-js-hidden">
+                      <div class="cover-overlay no-js-hidden background-$ID_CATEGORIA">
                          <div class="book-details">
                             <div class="book-details-content opaque" style="font-size: 6px;">
                                <h2>$Titulo</h2>

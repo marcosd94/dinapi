@@ -193,6 +193,16 @@
             }
          <% end_if %>
       </script>
+      
+      <% if ListaCategorias %> 
+          <style type="text/css">  
+            <% loop ListaCategorias %>  
+              .background-$ID {
+                background: none repeat scroll 0 0  <% if ColorCategoria %> $ColorCategoria <% else %> rgba(40,50,60,.9) <% end_if %>!important;
+              }
+            <% end_loop %>
+          </style>
+      <% end_if %>
     
   </head>
   <body id="page-top" >    

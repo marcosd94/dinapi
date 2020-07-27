@@ -1,7 +1,8 @@
 <?php
 class CategoriaBiblioteca extends DataObject {
   private static $db = array (
-    'Categoria' => 'Varchar(255)'
+    'Categoria' => 'Varchar(255)',    
+    'ColorCategoria' => 'Varchar(255)'
     
   );
 
@@ -33,19 +34,21 @@ class CategoriaBiblioteca extends DataObject {
 
 
   private static $summary_fields = array (
-      'Categoria' => 'Categoria'
+      'Categoria' => 'Categoria',
+      'Color Categoria' => 'ColorCategoria'
   );
 
   public function getCMSFields() {
     $fields = parent::getCMSFields();
     $fields = FieldList::create(
-        TextField::create('Categoria', 'Nombre de la categoria')
+        TextField::create('Categoria', 'Nombre de la categoria'),
+        TextField::create('ColorCategoria', 'Color de la categoria')
       );
 
     return $fields;
   }
 
   function getCMSValidator() {
-      return new RequiredFields(array('Categoria'));
+      return new RequiredFields(array('Categoria', 'ColorCategoria'));
   }
 }

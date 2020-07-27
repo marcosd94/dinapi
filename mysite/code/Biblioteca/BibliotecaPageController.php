@@ -14,7 +14,7 @@ class BibliotecaPageController extends Page_Controller {
 		$paramID= $this->getRequest()->param('ID');
 		
 		SS_Log::log($busqueda , SS_Log::AUDITORIA);
-		$sql = 'SELECT DISTINCT b.*, f.Filename FROM Biblioteca b 
+		$sql = 'SELECT DISTINCT b.*, f.Filename, cb.ID as ID_CATEGORIA, cb.Categoria FROM Biblioteca b 
 		LEFT JOIN CategoriaBiblioteca cb ON cb.ID = b.CategoriaID 
 		LEFT JOIN Biblioteca_Etiquetas be ON be.BibliotecaID = b.ID
 		LEFT JOIN EtiquetaBiblioteca eb ON eb.ID = be.EtiquetaBibliotecaID
@@ -50,7 +50,9 @@ class BibliotecaPageController extends Page_Controller {
 					'ID' => $item['ID'],
 					'Titulo' => htmlentities($item['Titulo']),
 					'Descripcion' => substr(strip_tags($item['Descripcion']), 0, 220).'...',
-					'ImagenPrincipal' => $item['Filename']
+					'ImagenPrincipal' => $item['Filename'],
+					'ID_CATEGORIA' => $item['ID_CATEGORIA'],
+					'Categoria' => $item['Categoria']
 				)));
 			}
 		}
@@ -67,7 +69,7 @@ class BibliotecaPageController extends Page_Controller {
 		
 	public function ListaCategorias() {
 			
-		$query = DB::query('SELECT cb.ID, Categoria, count(b.CategoriaID) as Cantidad FROM CategoriaBiblioteca cb 
+		$query = DB::query('SELECT cb.ID, Categoria, ColorCategoria, count(b.CategoriaID) as Cantidad FROM CategoriaBiblioteca cb 
 		LEFT JOIN Biblioteca b ON cb.ID = b.CategoriaID
 		GROUP BY cb.ID');
 
@@ -77,7 +79,8 @@ class BibliotecaPageController extends Page_Controller {
 				$output->push( ArrayData::create(array(
 					'ID' => $item['ID'],
 					'Categoria' => $item['Categoria'],
-					'Cantidad' => $item['Cantidad']
+					'Cantidad' => $item['Cantidad'],
+					'ColorCategoria' => $item['ColorCategoria']
 				)));
 			}
 		
