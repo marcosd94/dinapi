@@ -35,7 +35,7 @@ class CategoriaBiblioteca extends DataObject {
 
   private static $summary_fields = array (
       'Categoria' => 'Categoria',
-      'Color Categoria' => 'ColorCategoria'
+      'ColorCategoria' => 'Color Categoria'
   );
 
   public function getCMSFields() {
