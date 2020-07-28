@@ -15941,7 +15941,7 @@ figure.effect-apollo:hover .icono-eje-calendar {
   border-bottom: 1px solid #fff;
   font-size: 3em;
   font-weight: 700;
-  height: 2.5em;
+  height: auto;
   letter-spacing: -.04em;
   line-height: 1.2em;
   margin: 0 10px 1em;
