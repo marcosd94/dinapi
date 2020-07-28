@@ -141,7 +141,7 @@ class Biblioteca extends DataObject {
    * define los campos obligatarios en el formulario de carga para esta clase
    */
   function getCMSValidator() {
-      return new RequiredFields(array('Titulo', 'ImagenPrincipal', 'Descripcion', 'CategoriaID'));
+      return new RequiredFields(array('Titulo', 'ImagenPrincipal', 'Descripcion', 'CategoriaID','Etiquetas'));
   }
 
   /**

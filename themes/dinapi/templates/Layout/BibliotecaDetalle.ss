@@ -1,11 +1,14 @@
 
-      <div class="col-md-12 clear-section float-left pt-5 " id="information-container">
+      <div class="col-md-12 clear-section float-left destacado-container-detalle" id="information-container">
         
       <div class="clearfix"></div>
 
         <div class="row">
+          <a class="float destacado-home show-float-button collapsed" title="DESPLEGAR FILTROS" id="float-button" data-toggle="collapse" data-target="#filter-column" aria-expanded="true">
+            <i class="fa fa-filter my-float"></i>
+          </a>
             
-          <div class="col-md-3 sidebar-links filter-margin">
+          <div id="filter-column" class="col-md-3 sidebar-links filter-margin collapse">
             <div class="list-group" id="myList">        
               <ul class="list-group biblioteca-mobile" >
                 <li class="list-group-item head-biblioteca collapsed" data-toggle="collapse" data-target="#colapse-filter" aria-expanded="true">            
@@ -33,7 +36,7 @@
                 <% end_loop %>
               </ul>
               <ul class="list-group biblioteca-desktop">
-                <li class="list-group-item head-biblioteca biblioteca-desktop">            
+                <li class="list-group-item head-biblioteca biblioteca-desktop collapsed" data-toggle="collapse" data-target="#filter-column" aria-expanded="true">            
                  <span style="float:left;"><i class="fa fa-filter"></i> FILTROS</span> 
                  <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros"><i class="fa fa-refresh"  id="refresh"></i></a>
                 </li>
@@ -56,7 +59,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9 biblioteca-full-content" id="biblioteca-content">
             <div class="col-md-12 mt-0 information-texto">
                 <div class="container-biblioteca noticias-texto">
                     
@@ -273,7 +276,31 @@
                 location.href='biblioteca/'+id;
               }
             }
+          });
+          
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          var busqueda = urlParams.get('busqueda');  
+          if(urlParams.has('busqueda') && busqueda != ''){
+            $( "#biblioteca-content" ).removeClass( "biblioteca-full-content" );
+            $( "#float-button" ).removeClass( "show-float-button" );
+          }else{          
+            $('#filter-column').collapse("hide");
+          }
+          $('#filter-column').on('hidden.bs.collapse', function (e) {
+            $( "#biblioteca-content" ).addClass( "biblioteca-full-content" );
+            $( "#float-button" ).addClass( "show-float-button" );
           })
+          
+          $('#filter-column').on('show.bs.collapse', function (e) {
+            $( "#biblioteca-content" ).removeClass( "biblioteca-full-content" );
+            $( "#float-button" ).removeClass( "show-float-button" );
+          })
+
+
+          $("#filter-column").collapse({
+            toggle : true
+          });
           
           /*var res = window.location.pathname.split("/");
           if(typeof res[3] != "undefined"){
