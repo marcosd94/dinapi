@@ -14,12 +14,12 @@
                 <li class="list-group-item head-biblioteca collapsed" data-toggle="collapse" data-target="#colapse-filter" aria-expanded="true">            
                   <span style="float:left;" class="if-collapsed"><i class="fa fa-filter"></i> MOSTRAR FILTROS</span> 
                   <span style="float:left;" class="if-not-collapsed"><i class="fa fa-filter"></i> FILTROS</span> 
-                  <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros"><i class="fa fa-refresh"  id="refresh"></i></a>
+                  <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros">VER TODO<%-- <i class="fa fa-refresh"  id="refresh"></i> --%></a>
                 </li>
               </ul>
               <ul class="list-group biblioteca-mobile collapse" id="colapse-filter"> 
                 <li class="list-group-item search-biblioteca">
-                  <form id="SearchForm_SearchForm" action="" method="get"
+                  <form id="SearchForm_SearchForm" action="biblioteca" method="get"
                     enctype="application/x-www-form-urlencoded" 
                     class="col-md-12 col-xs-12">    
                     <div class="input-group" >                
@@ -38,10 +38,10 @@
               <ul class="list-group biblioteca-desktop">
                 <li class="list-group-item head-biblioteca biblioteca-desktop collapsed" data-toggle="collapse" data-target="#filter-column" aria-expanded="true">            
                  <span style="float:left;"><i class="fa fa-filter"></i> FILTROS</span> 
-                 <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros"><i class="fa fa-refresh"  id="refresh"></i></a>
+                 <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros">VER TODO<%-- <i class="fa fa-refresh"  id="refresh"></i> --%></a>
                 </li>
                 <li class="list-group-item search-biblioteca">
-                  <form id="SearchForm_SearchForm" action="" method="get"
+                  <form id="SearchForm_SearchForm" action="biblioteca" method="get"
                     enctype="application/x-www-form-urlencoded" 
                     class="col-md-12 col-xs-12">    
                     <div class="input-group" >                
@@ -267,14 +267,15 @@
             if(id == 'refresh'){
               location.href='biblioteca';
             }else{ 
-              const queryString = window.location.search;
+              /*const queryString = window.location.search;
               const urlParams = new URLSearchParams(queryString);
               var busqueda = urlParams.get('busqueda');  
               if(urlParams.has('busqueda') && busqueda != ''){           
                 location.href='biblioteca/'+id+'?busqueda='+busqueda;
               }else{
                 location.href='biblioteca/'+id;
-              }
+              }*/              
+              location.href='biblioteca/'+id;
             }
           });
           

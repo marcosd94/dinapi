@@ -12,12 +12,12 @@
           <li class="list-group-item head-biblioteca collapsed" data-toggle="collapse" data-target="#colapse-filter" aria-expanded="true">            
             <span style="float:left;" class="if-collapsed"><i class="fa fa-filter"></i> MOSTRAR FILTROS</span> 
             <span style="float:left;" class="if-not-collapsed"><i class="fa fa-filter"></i> FILTROS</span> 
-            <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros"><i class="fa fa-refresh"  id="refresh"></i></a>
+            <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros">VER TODO<%-- <i class="fa fa-refresh"  id="refresh"></i> --%></a>
           </li>
         </ul>
         <ul class="list-group biblioteca-mobile collapse" id="colapse-filter"> 
           <li class="list-group-item search-biblioteca">
-            <form id="SearchForm_SearchForm" action="" method="get"
+            <form id="SearchForm_SearchForm" action="biblioteca" method="get"
               enctype="application/x-www-form-urlencoded" 
               class="col-md-12 col-xs-12">    
               <div class="input-group" >                
@@ -36,10 +36,10 @@
         <ul class="list-group biblioteca-desktop">
           <li class="list-group-item head-biblioteca biblioteca-desktop collapsed" data-toggle="collapse" data-target="#filter-column" aria-expanded="true">            
            <span style="float:left;"><i class="fa fa-filter"></i> FILTROS</span> 
-           <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros"><i class="fa fa-refresh"  id="refresh"></i></a>
+           <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros">VER TODO<%-- <i class="fa fa-refresh"  id="refresh"></i> --%></a>
           </li>
           <li class="list-group-item search-biblioteca">
-            <form id="SearchForm_SearchForm" action="" method="get"
+            <form id="SearchForm_SearchForm" action="biblioteca" method="get"
               enctype="application/x-www-form-urlencoded" 
               class="col-md-12 col-xs-12">    
               <div class="input-group" >                
@@ -58,10 +58,20 @@
       </div>
     </div>
     <div class="col-md-9 biblioteca-full-content" id="biblioteca-content">
+      <% if LabelCategoria %>
+        <div class="row">
+          <div class="col-md-12 breadcrumb-busqueda">Se muestran las búsquedas por la categoría <span style="color: #00a89b;">"$LabelCategoria"</span></div>
+        </div>
+      <% end_if %>
+      <% if busqueda %>
+        <div class="row">
+          <div class="col-md-12 breadcrumb-busqueda">Se muestran las búsquedas por la clave <span style="color: #00a89b;">"$busqueda"</span></div>
+        </div>
+      <% end_if %>
       <% if ListaBibliotecas %>
         <div class="row">
         <% loop ListaBibliotecas %>
-          <div class="mm_entry item-data">
+          <div class="mm_entry item-data" id="biblioteca-$ID">
              <div class="item-container">
                 <div class="image-cover">
                    <a title="$Titulo" href="bibliotecas/detalle-biblioteca?idBiblioteca=$ID">
@@ -126,14 +136,15 @@
           if(id == 'refresh'){
             location.href='biblioteca';
           }else{ 
-            const queryString = window.location.search;
+            location.href='biblioteca/'+id;
+            /*const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             var busqueda = urlParams.get('busqueda');  
             if(urlParams.has('busqueda') && busqueda != ''){           
               location.href='biblioteca/'+id+'?busqueda='+busqueda;
             }else{
               location.href='biblioteca/'+id;
-            }
+            }*/
           }
         
         });
@@ -149,7 +160,7 @@
         });*/
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        var busqueda = urlParams.get('busqueda');  
+        var busqueda = urlParams.get('busqueda');
         if(urlParams.has('busqueda') && busqueda != ''){
           $( "#biblioteca-content" ).removeClass( "biblioteca-full-content" );
           $( "#float-button" ).removeClass( "show-float-button" );
@@ -159,11 +170,17 @@
         $('#filter-column').on('hidden.bs.collapse', function (e) {
           $( "#biblioteca-content" ).addClass( "biblioteca-full-content" );
           $( "#float-button" ).addClass( "show-float-button" );
+          $('.item-data').each(function(index, element) {
+            element.classList.remove( "mm_entry-collapse" );
+          });
         })
         
         $('#filter-column').on('show.bs.collapse', function (e) {
           $( "#biblioteca-content" ).removeClass( "biblioteca-full-content" );
           $( "#float-button" ).removeClass( "show-float-button" );
+          $('.item-data').each(function(index, element) {
+            element.classList.add( "mm_entry-collapse" );
+          });
         })
 
 

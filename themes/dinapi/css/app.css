@@ -15835,6 +15835,11 @@ figure.effect-apollo:hover .icono-eje-calendar {
   padding-left: 15px;
   padding-right: 15px;
 }
+.mm_entry-collapse {
+  float: left;
+  width: 25%;
+  padding-bottom: 36%;
+}
 
 @media (min-width: 0){
   .mm_entry {
@@ -15865,11 +15870,22 @@ figure.effect-apollo:hover .icono-eje-calendar {
 @media (min-width: 1200px){
   .mm_entry {
       float: left;
-      width: 25%;
+      width: 16.66666667%;
+      padding-bottom: 24%;
+  }
+  .mm_entry-collapse {
+    float: left;
+    width: 25%;
+    padding-bottom: 36%;
   }
 }
 @media (min-width: 1400px){
   .mm_entry {
+      float: left;
+      width: 16.66666667%;
+      padding-bottom: 24%;
+  }
+  .mm_entry-collapse {
       float: left;
       width: 16.66666667%;
       padding-bottom: 24%;
@@ -16190,4 +16206,12 @@ figure.effect-apollo:hover .icono-eje-calendar {
   /* font-family: "Montserrat";
   letter-spacing: 0.1rem;
   animation: fade 1.5s infinite 200ms; */
+}
+.breadcrumb-busqueda{
+  color: #1c2d36;
+  text-align: right;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  padding-right: 3rem;
 }

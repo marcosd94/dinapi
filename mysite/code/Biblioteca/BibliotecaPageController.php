@@ -62,9 +62,15 @@ class BibliotecaPageController extends Page_Controller {
 			$request
 		  )->setPageLength(12)
 		   ->setPaginationGetVar('s');
-		   
+		
+		$labelCategoria = "";
+		if($paramID != ""){
+			$labelCategoria = CategoriaBiblioteca::get()->byID($paramID)->Categoria;
+		}
+
 		return $this->customise(array('busqueda' => $data["busqueda"],
-			'ListaBibliotecas' => $paginatedProperties))->renderWith(array('BibliotecaPage', 'Page'));
+			'ListaBibliotecas' => $paginatedProperties,
+			'LabelCategoria' => strtoupper($labelCategoria)))->renderWith(array('BibliotecaPage', 'Page'));
 	}
 		
 	public function ListaCategorias() {
