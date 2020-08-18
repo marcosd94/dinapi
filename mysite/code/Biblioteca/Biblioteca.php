@@ -24,14 +24,15 @@ class Biblioteca extends DataObject {
     'DescripcionVideos' => 'Varchar(500)',
     'DescripcionImagenes' => 'Varchar(500)',
     'DescripcionDocumentos' => 'Varchar(500)',
-    'EnlacesReferencias' => 'HTMLText'
+    'EnlacesReferencias' => 'HTMLText',
+    'FechaOrdenamiento' => 'Date'
   );
   
   private static $singular_name = "Biblioteca";
 
   private static $plural_name = "Bibliotecas";
   
-  private static $default_sort = 'Created DESC';
+  private static $default_sort = 'FechaOrdenamiento DESC, Created DESC';
   
   public function canEdit() {
       return true;
@@ -83,7 +84,8 @@ class Biblioteca extends DataObject {
       'Titulo' => 'Titulo',
       'DescripcionVideos' => 'Descripcion Videos',
       'DescripcionImagenes' => 'Descripcion Imagenes',
-      'DescripcionDocumentos' => 'Descripcion Documentos'
+      'DescripcionDocumentos' => 'Descripcion Documentos',
+      'FechaOrdenamiento.Nice' => 'Fecha ordenamiento'
   );
 
   /**
@@ -104,6 +106,10 @@ class Biblioteca extends DataObject {
           'Etiquetas',
           EtiquetaBiblioteca::get()->map('ID', 'Etiqueta')->toArray()
         )->setMultiple(true)->setAttribute('data-placeholder', 'Seleccionar etiqueta(es)'),
+
+       
+        DateField::create('FechaOrdenamiento', 'Fecha de ordenamiento') ->setConfig('showcalendar', true),
+        
         $uploaderImagenPrincipal = UploadField::create('ImagenPrincipal', 'Imágen principal'),
         HTMLEditorField::create('Descripcion', 'Descripción de la biblioteca'),
 

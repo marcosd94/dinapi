@@ -4,16 +4,16 @@
       <div class="clearfix"></div>
 
         <div class="row">
-          <a class="float destacado-home show-float-button collapsed" title="DESPLEGAR FILTROS" id="float-button" data-toggle="collapse" data-target="#filter-column" aria-expanded="true">
+          <%-- <a class="float destacado-home show-float-button collapsed" title="DESPLEGAR FILTROS" id="float-button" data-toggle="collapse" data-target="#filter-column" aria-expanded="true">
             <i class="fa fa-filter my-float"></i>
-          </a>
+          </a> --%>
             
-          <div id="filter-column" class="col-md-3 sidebar-links filter-margin collapse">
+          <div id="filter-column" class="col-md-2 sidebar-links filter-margin">
             <div class="list-group" id="myList">        
               <ul class="list-group biblioteca-mobile" >
                 <li class="list-group-item head-biblioteca collapsed" data-toggle="collapse" data-target="#colapse-filter" aria-expanded="true">            
-                  <span style="float:left;" class="if-collapsed"><i class="fa fa-filter"></i> MOSTRAR FILTROS</span> 
-                  <span style="float:left;" class="if-not-collapsed"><i class="fa fa-filter"></i> FILTROS</span> 
+                  <span style="float:left;" class="if-collapsed"><i class="fa fa-filter"></i> MOSTRAR SECCIONES</span> 
+                  <span style="float:left;" class="if-not-collapsed"><i class="fa fa-filter"></i> SECCIONES</span> 
                   <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros">VER TODO<%-- <i class="fa fa-refresh"  id="refresh"></i> --%></a>
                 </li>
               </ul>
@@ -31,13 +31,13 @@
                   </form>
                 </li>
                 <% loop ListaCategorias %>
-                  <a class="list-group-item d-flex justify-content-between align-items-center item-categoria" id="categoria-$ID"  href="biblioteca/$ID">$Categoria
+                  <a class="list-group-item d-flex justify-content-between align-items-center item-categoria" id="categoria-mobile-$ID"  href="biblioteca/$ID">$Categoria
                   <span class="badge badge-primary badge-pill">$Cantidad</span></a>
                 <% end_loop %>
               </ul>
               <ul class="list-group biblioteca-desktop">
-                <li class="list-group-item head-biblioteca biblioteca-desktop collapsed" data-toggle="collapse" data-target="#filter-column" aria-expanded="true">            
-                 <span style="float:left;"><i class="fa fa-filter"></i> FILTROS</span> 
+                <li class="list-group-item head-biblioteca biblioteca-desktop">            
+                 <span style="float:left;"><i class="fa fa-filter"></i> SECCIONES</span> 
                  <a class="refresh-filter" id="refresh" href="biblioteca" title="Limpiar filtros">VER TODO<%-- <i class="fa fa-refresh"  id="refresh"></i> --%></a>
                 </li>
                 <li class="list-group-item search-biblioteca">
@@ -59,7 +59,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-9 biblioteca-full-content" id="biblioteca-content">
+          <div class="col-md-10" id="biblioteca-content">
             <div class="col-md-12 mt-0 information-texto">
                 <div class="container-biblioteca noticias-texto">
                     
@@ -264,6 +264,7 @@
           $('#myList a').on('click', function (e) {
             e.preventDefault();
             id = e.target.id.replace('categoria-', '');
+            id = id.replace('mobile-', '');
             if(id == 'refresh'){
               location.href='biblioteca';
             }else{ 
@@ -278,31 +279,15 @@
               location.href='biblioteca/'+id;
             }
           });
-          
-          const queryString = window.location.search;
-          const urlParams = new URLSearchParams(queryString);
-          var busqueda = urlParams.get('busqueda');  
-          if(urlParams.has('busqueda') && busqueda != ''){
-            $( "#biblioteca-content" ).removeClass( "biblioteca-full-content" );
-            $( "#float-button" ).removeClass( "show-float-button" );
-          }else{          
-            $('#filter-column').collapse("hide");
-          }
-          $('#filter-column').on('hidden.bs.collapse', function (e) {
-            $( "#biblioteca-content" ).addClass( "biblioteca-full-content" );
-            $( "#float-button" ).addClass( "show-float-button" );
-          })
-          
-          $('#filter-column').on('show.bs.collapse', function (e) {
-            $( "#biblioteca-content" ).removeClass( "biblioteca-full-content" );
-            $( "#float-button" ).removeClass( "show-float-button" );
-          })
-
-
-          $("#filter-column").collapse({
-            toggle : true
-          });
-          
+          <% if Biblioteca %>
+            <% loop Biblioteca %>
+              
+              var element = document.getElementById("categoria-"+$CategoriaID);
+              element.classList.add("biblioteca-active");
+              var element = document.getElementById("categoria-mobile-"+$CategoriaID);
+              element.classList.add("biblioteca-active");
+            <% end_loop %>
+          <% end_if %>
           /*var res = window.location.pathname.split("/");
           if(typeof res[3] != "undefined"){
             var element = document.getElementById("categoria-"+res[3]);

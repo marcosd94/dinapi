@@ -33,6 +33,7 @@ class EtiquetaBiblioteca extends DataObject {
 
 
   private static $summary_fields = array (
+      'ID' => 'ID',
       'Etiqueta' => 'Etiqueta'
   );
 

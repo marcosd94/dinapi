@@ -3,20 +3,15 @@
 class CustomSiteConfig extends DataExtension {
 
     private static $db = array(
-        'TelefonoContacto' => 'Varchar(255)',
-        'MensajeWhatsapp' => 'Varchar(255)',
         'EmailContacto' => 'Varchar(255)',
-        'TextoCopyright' => 'Text',
-        'FacebookLink' => 'Varchar(255)',
-        'InstagramLink' => 'Varchar(255)',
-        'TwitterLink' => 'Varchar(255)',
-        'LinkedinLink'=> 'Varchar(255)',
         'MostrarPopUp' => 'Boolean',
-        'VideoLink'=> 'Varchar(255)'
+        'VideoLink'=> 'Varchar(255)',
+        'ContenidoBiblioteca' => 'HTMLText'  
     );
 
     private static $has_one = array (
-      'ImagenCompleta' => 'Image'
+      'ImagenCompleta' => 'Image',
+      'ImagenBiblioteca' => 'Image'
     );
 
     public function updateCMSFields(FieldList $fields) {
@@ -36,6 +31,14 @@ class CustomSiteConfig extends DataExtension {
       );
       
       $fields->addFieldToTab('Root.Main', new TextField('VideoLink','Link del video a mostrar'));
+
+      $uploadFieldBiblioteca = UploadField::create('ImagenBiblioteca', 'Imagen para la biblioteca');
+      $uploadFieldBiblioteca->setFolderName('biblioteca/imagenes-pagina');
+      $fields->addFieldToTab('Root.Main',$uploadFieldBiblioteca);
+
+      $fields->addFieldToTab('Root.Main', new HTMLEditorField('ContenidoBiblioteca', 'Contenido p&aacute;gina biblioteca'));
+
+
       
     }
 }

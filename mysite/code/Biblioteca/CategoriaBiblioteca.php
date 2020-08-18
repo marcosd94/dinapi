@@ -34,6 +34,7 @@ class CategoriaBiblioteca extends DataObject {
 
 
   private static $summary_fields = array (
+      'ID' => 'ID',
       'Categoria' => 'Categoria',
       'ColorCategoria' => 'Color Categoria'
   );

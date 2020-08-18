@@ -39,7 +39,7 @@ class BibliotecaPageController extends Page_Controller {
 					UPPER(eb.Etiqueta) LIKE UPPER(\'%'.$busqueda.'%\')';
 			}
 		}
-		$sql = $sql.' ORDER BY b.Created DESC';
+		$sql = $sql.' ORDER BY b.FechaOrdenamiento DESC';
 		
 		$query = DB::query($sql);
 

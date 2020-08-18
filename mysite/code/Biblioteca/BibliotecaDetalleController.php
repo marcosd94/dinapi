@@ -13,7 +13,7 @@ class BibliotecaDetalleController extends Page_Controller {
 	}
 	public function ListaCategorias() {
 			
-		$query = DB::query('SELECT cb.ID, Categoria, count(b.CategoriaID) as Cantidad FROM CategoriaBiblioteca cb 
+		$query = DB::query('SELECT cb.ID, Categoria, count(b.CategoriaID) as Cantidad, b.CategoriaID as CategoriaID FROM CategoriaBiblioteca cb 
 		LEFT JOIN Biblioteca b ON cb.ID = b.CategoriaID
 		GROUP BY cb.ID');
 
@@ -23,7 +23,8 @@ class BibliotecaDetalleController extends Page_Controller {
 				$output->push( ArrayData::create(array(
 					'ID' => $item['ID'],
 					'Categoria' => $item['Categoria'],
-					'Cantidad' => $item['Cantidad']
+					'Cantidad' => $item['Cantidad'],
+					'CategoriaID' => $item['CategoriaID']
 				)));
 			}
 		
