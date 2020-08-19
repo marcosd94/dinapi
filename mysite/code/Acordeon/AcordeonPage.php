@@ -5,7 +5,8 @@
 
 		private static $db = array(
 			'TituloPadre' => 'Varchar(255)',
-			'TituloAnexo' => 'Varchar(255)'
+			'TituloAnexo' => 'Varchar(255)',
+			'ContenidoSuperior' => 'HTMLText'
 		);
 
 		private static $description = 'Página con estilo de acordeon con contenido desplegable';
@@ -39,6 +40,8 @@
 				$fields->addFieldToTab('Root.Main',$uploadField,'Content');
 
 				$fields->addFieldToTab('Root.Main',TextField::create('TituloAnexo','Titulo para el anexo'),'Content');
+				//$fields->removeFieldFromTab('Root.Main','Content');
+				$fields->addFieldToTab('Root.Main', HTMLEditorField::create('ContenidoSuperior', 'Contenido para mostrar arriba de los desplegables'),'Content');
 				/* $fields->addFieldToTab(
 					'Root.Upload',  
 					$uploadField = new UploadField(
@@ -47,6 +50,7 @@
 					)   
 				);
 				$uploadField->setFolderName('acordeon/archivos-anexos'); */
+				$fields->fieldByName('Root.Main.Content')->setTitle('Contenido para mostrar debajo de los desplegables');
 				
 			return $fields;
 		}

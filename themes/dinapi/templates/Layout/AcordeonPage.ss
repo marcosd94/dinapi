@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-8 mt-5 information-texto">
       <%-- <h2 class="inicial" style="text-transform: uppercase">$Titulo</h2> --%>
-      $Content
+      $ContenidoSuperior
       <% if Desplegables %>
         <% loop Desplegables %>          
           <h4 class="inicial" data-toggle="collapse" data-target="#colapse-$ID" style="cursor: pointer;text-transform: uppercase;">+ $Titulo</h4>
@@ -54,7 +54,9 @@
               </div>
             </div>  
       <% end_if %>  
-
+      
+      <br>
+      $Content
     </div>
   </div>
 </div>
